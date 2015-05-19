@@ -36,4 +36,6 @@ return array(
     'HTML_FILE_SUFFIX'  =>  '.html', //设置静态缓存文件后缀
 
     'SHOW_PAGE_TRACE' =>true,
+
+    
 );
