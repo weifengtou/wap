@@ -2,11 +2,14 @@
 
 <block name="body">
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h2>h2</h2>
-                <p>testetstteststest</p>
-            </div>
+        <form action="" role="from" class='form-signin' method="post" id="login"></form>
+        <h4 class='form-signin-heading'>用户登录</h4>
+        <input type='text' class='form-control' placeholder='请输入用户名' name="username" form='login' required autofocus>
+        <div style='height:10px;clear:both;display:block'></div>
+        <input type='password' class='form-control' placeholder='请输入密码' name="password" form='login' required>
+        <div class='checkbox'>
+            <label><input type='checkbox' value='remember-me'>记住登录状态</label>
         </div>
+        <button class='btn btn-lg btn-primary btn-block' type='submit' name="isSubmit" value="true" form='login'>登录</button>
     </div>
 </block>

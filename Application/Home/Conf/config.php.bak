@@ -14,7 +14,7 @@ return array(
 
     /* 数据库设置 */
     'DB_TYPE'               =>  'mysqli',     // 数据库类型
-    'DB_HOST'               =>  '192.168.1.12', // 服务器地址
+    'DB_HOST'               =>  '192.168.0.15', // 服务器地址
     'DB_NAME'               =>  'weifengtou',          // 数据库名
     'DB_USER'               =>  'root',      // 用户名
     'DB_PWD'                =>  'root',          // 密码
