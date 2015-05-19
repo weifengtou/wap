@@ -1,6 +1,11 @@
 <?php
 return array(
 	//'配置项'=>'配置值'
+
+	/* 数据缓存设置 */
+    'DATA_CACHE_PREFIX' => 'wft_', // 缓存前缀
+    'DATA_CACHE_TYPE'   => 'File', // 数据缓存类型
+
 	/* URL配置 */
     'URL_CASE_INSENSITIVE' => true, //默认false 表示URL区分大小写 true则表示不区分大小写
     'URL_MODEL'            => 3, //URL模式
@@ -12,4 +17,14 @@ return array(
         '__STATIC__' => __ROOT__ . '/Public/static',
         '__SITE__' => __ROOT__ . '/Public/site',
     ),
+
+    /* SESSION 和 COOKIE 配置 */
+    'SESSION_PREFIX' => 'wft_home', //session前缀
+    'COOKIE_PREFIX'  => 'wft_home_', // Cookie前缀 避免冲突
+
+    'DEFAULT_FILTER' => 'htmlspecialchars', //全局过滤函数
+
+    'HTML_FILE_SUFFIX'  =>  '.html', //设置静态缓存文件后缀
+
+    'SHOW_PAGE_TRACE' =>true,
 );
