@@ -41,7 +41,8 @@
                 success: function (data) {
                     if (data=='欢迎登陆微风投手机版!') {
                         layer.alert(data,{
-                            icon:1
+                            icon:1,
+                            time: 5000
                         })
                         location.href="{:U('Home/Index/index')}"
                     }else{
