@@ -4,9 +4,10 @@
     <link rel="stylesheet" href="__STATIC__/bootstrapvalidator/dist/css/bootstrapValidator.css"/>
     <script type="text/javascript" src="__STATIC__/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
     <script type="text/javascript" src="__STATIC__/bootstrapvalidator/dist/js/language/zh_CN.js"></script>
+    <script type="text/javascript" src="__STATIC__/jquery.form.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            var userValidate = "{:U('userValidate')}"
+            var userValidateUrl = "{:U('userValidate')}"
             $('#login').bootstrapValidator({
                 message: 'This value is not valid',
                 feedbackIcons: {
@@ -19,12 +20,6 @@
                         validators: {
                             notEmpty: {
                                 message: '用户名不能为空'
-                            },
-                            remote: {
-                                url: userValidate,
-                                type:'post',
-                                data:{'username':'test'},
-                                message: '用户名不存在'
                             }
                         }
                     },
@@ -38,11 +33,16 @@
                 }
             });
             $('#validateBtn').click(function () {
-                $('#login').bootstrapValidator('validate');
+                $('#login').bootstrapValidator();
             });
             $('#resetBtn').click(function () {
                 $('#login').data('bootstrapValidator').resetForm(true);
             });
+            $('#login').ajaxForm({
+                success:function(data){
+                    alert(data)
+                }
+            })
         });
     </script>
 </block>
@@ -55,7 +55,7 @@
                     <div class="page-header">
                         <h2>用户登录</h2>
                     </div>
-                    <form action="" id="login" method="post" class="form-horizontal" >
+                    <form action="{:U('userValidate')}" id="login" method="post" class="form-horizontal" >
                         <div class="form-group">
                             <label class="col-lg-3 control-label">用户名</label>
                             <div class="col-lg-5">
