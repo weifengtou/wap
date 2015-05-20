@@ -1,15 +1,82 @@
 <extend name="Base/layout"/>
 
+<block name="head">
+    <link rel="stylesheet" href="__STATIC__/bootstrapvalidator/dist/css/bootstrapValidator.css"/>
+    <script type="text/javascript" src="__STATIC__/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
+    <script type="text/javascript" src="__STATIC__/bootstrapvalidator/dist/js/language/zh_CN.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var userValidate = "{:U('userValidate')}"
+            $('#login').bootstrapValidator({
+                message: 'This value is not valid',
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    username: {
+                        validators: {
+                            notEmpty: {
+                                message: '用户名不能为空'
+                            },
+                            remote: {
+                                url: userValidate,
+                                type:'post',
+                                data:{'username':'test'},
+                                message: '用户名不存在'
+                            }
+                        }
+                    },
+                    password: {
+                        validators: {
+                            notEmpty: {
+                                message: '密码不能为空'
+                            }
+                        }
+                    }
+                }
+            });
+            $('#validateBtn').click(function () {
+                $('#login').bootstrapValidator('validate');
+            });
+            $('#resetBtn').click(function () {
+                $('#login').data('bootstrapValidator').resetForm(true);
+            });
+        });
+    </script>
+</block>
+
 <block name="body">
     <div class="container">
-        <form action="" role="from" class='form-signin' method="post" id="login"></form>
-        <h4 class='form-signin-heading'>用户登录</h4>
-        <input type='text' class='form-control' placeholder='请输入用户名' name="username" form='login' required autofocus>
-        <div style='height:10px;clear:both;display:block'></div>
-        <input type='password' class='form-control' placeholder='请输入密码' name="password" form='login' required>
-        <div class='checkbox'>
-            <label><input type='checkbox' value='remember-me'>记住登录状态</label>
+        <div class="row">
+            <section>
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="page-header">
+                        <h2>用户登录</h2>
+                    </div>
+                    <form action="" id="login" method="post" class="form-horizontal" >
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">用户名</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="username" / >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">密码</label>
+                            <div class="col-lg-5">
+                                <input type="password" class="form-control" name="password" / >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-9 col-lg-offset-3">
+                                <button type="submit" class="btn btn-primary" name="isSubmit" value="ture">登陆</button>
+                                <button type="button" class="btn btn-info" id="resetBtn">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
         </div>
-        <button class='btn btn-lg btn-primary btn-block' type='submit' name="isSubmit" value="true" form='login'>登录</button>
     </div>
 </block>

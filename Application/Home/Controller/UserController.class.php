@@ -14,4 +14,15 @@ class UserController extends Controller {
     	}
     	$this->display();
     }
+
+    public function UserValidate()
+    {
+    	$valid = false;
+    	if (I("post.username")=='test') {
+    		$valid = true;
+    	}
+		echo json_encode(array(
+		    'valid' => $valid,
+		));
+    }
 }
