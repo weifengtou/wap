@@ -9,7 +9,6 @@
         $(document).ready(function () {
             var userValidateUrl = "{:U('userValidate')}"
             $('#login').bootstrapValidator({
-                message: 'This value is not valid',
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',
                     invalid: 'glyphicon glyphicon-remove',
@@ -31,7 +30,7 @@
                         }
                     }
                 }
-            });
+            })
             $('#validateBtn').click(function () {
                 $('#login').bootstrapValidator();
             });
@@ -39,8 +38,17 @@
                 $('#login').data('bootstrapValidator').resetForm(true);
             });
             $('#login').ajaxForm({
-                success:function(data){
-                    alert(data)
+                success: function (data) {
+                    if (data=='欢迎登陆微风投手机版!') {
+                        layer.alert(data,{
+                            icon:1
+                        })
+                        location.href="{:U('Home/Index/index')}"
+                    }else{
+                        layer.alert(data,{
+                            icon:2
+                        })
+                    }
                 }
             })
         });
@@ -53,7 +61,7 @@
             <section>
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="page-header">
-                        <h2>用户登录</h2>
+                        <h4>用户登录</h4>
                     </div>
                     <form action="{:U('userValidate')}" id="login" method="post" class="form-horizontal" >
                         <div class="form-group">
