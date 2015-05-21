@@ -1,7 +1,6 @@
 <?php
 namespace Home\Controller;
-use Think\Controller;
-class UserController extends Controller {
+class UserController extends HomeController {
 
     public function index(){
         echo "index";
@@ -26,10 +25,16 @@ class UserController extends Controller {
 		    'valid' => $valid,
 		));*/
 		if ($valid) {
-			session("userInfo",$userinfo);
+			session("userInfo",$userInfo);
 			echo "欢迎登陆微风投手机版!";
 		}else{
 			echo "用户名或密码错误!";
 		}
+    }
+
+    public function logout()
+    {
+        session('userInfo',null);
+        $this->redirect('Index/index');
     }
 }

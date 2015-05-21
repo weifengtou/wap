@@ -18,19 +18,30 @@
                     <ul class="nav navbar-nav">
                         <li><a href="http://www.thinkphp.cn/" target="_blank">ThinkPHP<span class="sr-only">(current)</span></a></li>
                         <li><a href="http://v3.bootcss.com/" target="_blank">Bootstrap</a></li>
-                        <li><a href="">好项目</a></li>
-                        <li><a href="">投资人</a></li>
-                        <li><a href="{:U('User/login')}">登陆</a></li>
+                        <li><a href="{:U('Project/index')}">好项目</a></li>
+                        <li><a href="{:U('Investor/index')}">投资人</a></li>
+                        <?php if (!session('userInfo')): ?>
+                            <li><a href="{:U('User/login')}">登陆</a></li>
+                        <?php else: ?>
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{$userInfo[0]['username']}<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">个人中心</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{:U('User/logout')}">退出</a></li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">服务中心<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a href="#">路演专题</a></li>
+                                <li><a href="#">微风投电影</a></li>
+                                <li><a href="#">新闻中心</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">我们的服务</a></li>
                             </ul>
                         </li>
                     </ul>
