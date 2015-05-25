@@ -20,10 +20,9 @@ class UserController extends HomeController {
     		if ($userInfo = M("Homeuser")->where("username='$username' AND password='$password'")->select()) {
     			$valid = true;
     		}
-    	}
-		/*echo json_encode(array(
-		    'valid' => $valid,
-		));*/
+    	}else{
+            $this->error("非法访问！");
+        }
 		if ($valid) {
 			session("userInfo",$userInfo);
 			echo "欢迎登陆微风投手机版!";
@@ -36,5 +35,52 @@ class UserController extends HomeController {
     {
         session('userInfo',null);
         $this->redirect('Index/index');
+    }
+
+    public function register()
+    {
+        if (I('post.signup')) {
+            $model = D('Homeuser');
+            if ($model->create()) {
+                $id = $model->add();
+                var_dump("你做激活");
+                exit;
+            }else{
+                exit($model->getError());
+            }
+        }
+        $this->display();
+    }
+
+    public function usernameRemote()
+    {
+        $valid = true;
+        if ($username = I("post.username")) {
+            $x = M('Homeuser')->where("username='$username'")->select();
+            if ($x) {
+                $valid = false;
+            }
+        }else{
+            $this->error("非法访问！");
+        }
+        echo json_encode(array(
+            'valid' => $valid,
+        ));
+    }
+
+    public function emailRemote()
+    {
+        $valid = true;
+        if ($email = I("post.email")) {
+            $x = M('Homeuser')->where("email='$email'")->select();
+            if ($x) {
+                $valid = false;
+            }
+        }else{
+            $this->error("非法访问！");
+        }
+        echo json_encode(array(
+            'valid' => $valid,
+        ));
     }
 }

@@ -7,15 +7,39 @@
     <div class="container" style="height:50px;">
         <div style="max-height:50px;display:block;padding:10px 0 10px 0;">
             <div style="max-height:30px;display:block;width:120px;">
-                <img class="pull-left" style="max-height:30px;display:block;width:120px;" src="__SITE__/images/flogo.gif">
+                <a href="{:U('Index/index')}">
+                    <img class="pull-left" style="max-height:30px;display:block;width:120px;" src="__SITE__/images/flogo.gif"></a>
             </div>
-                <a href="" class="pull-right" style="line-height:30px;">test</a>
+            <div class="pull-right" style="line-height:30px;">
+                <a href="{:U('User/login')}" >登陆</a>
+                <a href="{:U('User/register')}">注册</a>
+            </div>
         </div>
     </div>
     <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-        <a href="#" class="btn btn-default" role="button">首页</a>
-        <a href="#" class="btn btn-default" role="button">好项目</a>
-        <a href="#" class="btn btn-default" role="button">投资人</a>
-        <a href="#" class="btn btn-default" role="button">服务中心</a>
+        <a href="{:U('Index/index')}" class="btn btn-default" role="button">首页</a>
+        <a href="{:U('Project/index')}" class="btn btn-default" role="button">好项目</a>
+        <a href="{:U('Investor/index')}" class="btn btn-default" role="button">投资人</a>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                服务中心
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                <li>
+                    <a href="{:U('Roadshow/index')}">路演专题</a>
+                </li>
+                <li>
+                    <a href="{:U('Mfilm/index')}">微风投电影</a>
+                </li>
+                <li>
+                    <a href="{:U('News/index')}">新闻中心</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="{:U('Server/index')}">我们的服务</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
