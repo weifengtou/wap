@@ -3,7 +3,7 @@ namespace Home\Controller;
 class ProjectController extends HomeController {
 
     public function index(){
-        $this->redirect('projects');
+        // $this->redirect('projects');
     }
 
     public function projects()
