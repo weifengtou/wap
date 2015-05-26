@@ -2,7 +2,7 @@
 function warp_height () {
 	var window_height = $(window).height()
 	var footer_height = $('footer').outerHeight()
-	$("#wrap_con").css('min-height', window_height-footer_height-50);
+	$("#wrap_con").css('min-height', window_height-footer_height-110);
 }
 
 // ready and window resize funs
