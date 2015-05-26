@@ -8,6 +8,9 @@ class ProjectController extends HomeController {
 
     public function projects()
     {
+    	$projects = M('Project')->where("prrate>1")->select();
+
+    	$this->assign('projects',$projects);
     	$this->display();
     }
 }
