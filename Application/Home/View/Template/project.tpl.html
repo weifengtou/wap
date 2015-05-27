@@ -1,23 +1,36 @@
 <script src="__STATIC__/Chart.js-master/Chart.min.js"></script>
-<?php foreach ($projects as $key => $proInfo): ?>
-	<div class="panel panel-primary">
-		<div class="panel-heading">{$proInfo['pjname']}</div>
-		<div class="panel-body">
-			<a href="#" class="thumbnail">
-				<img src="__SOURCE_URL__/Uploads/Album/{$proInfo['logo']}" alt="logo"></a>
-			<p>{$proInfo['pjintroduce']}</p>
-			<div>
-				<canvas class="pull-left" id="chart{$proInfo['id']}" width="100" height="100"></canvas>
-				<div class="pull-right" style="">
-                    <p style="margin:0">项目阶段：<span class="pull-right">融资中</span></p>
-                    <p style="margin:0">融资总额：<span class="pull-right">10000(元)</span></p>
-                    <p style="margin:0">已总额：<span class="pull-right">9000(元)</span></p>
-                    <p style="margin:0">仍需融资：<span class="pull-right">1000(元)</span></p>
-				</div>
+<?php foreach ($projects as $key =>
+$proInfo): ?>
+<div class="panel panel-primary">
+	<div class="panel-heading">{$proInfo['pjname']}</div>
+	<div class="panel-body">
+		<a href="#" class="thumbnail">
+			<img src="__SOURCE_URL__/Uploads/Album/{$proInfo['logo']}" alt="logo"></a>
+		<p>{$proInfo['pjintroduce']}</p>
+		<div>
+			<canvas class="pull-left" id="chart{$proInfo['id']}" width="100" height="100"></canvas>
+			<div class="pull-right" style="">
+				<p style="margin:0">
+					项目阶段：
+					<span class="pull-right">融资中</span>
+				</p>
+				<p style="margin:0">
+					融资总额：
+					<span class="pull-right">10000(元)</span>
+				</p>
+				<p style="margin:0">
+					已总额：
+					<span class="pull-right">9000(元)</span>
+				</p>
+				<p style="margin:0">
+					仍需融资：
+					<span class="pull-right">1000(元)</span>
+				</p>
 			</div>
 		</div>
 	</div>
-	<script>
+</div>
+<script>
 	var data = [
 		{
 			value: 10000,
