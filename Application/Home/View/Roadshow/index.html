@@ -1,12 +1,36 @@
 <extend name="Base/layout"/>
 
 <block name="body">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h2>h2</h2>
-                <p>testetstteststest</p>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div style="margin-top:10px;"></div>
+			<div class="col-xs-12">
+				<div>
+					<h4>微风投首次路演在梧桐高尔夫举行</h4>
+					<?php if ($proInfo[0][videoweb]):
+		                $x = $proInfo[0][videoweb];
+		            else:
+		                $x = 'XODMwNjE3ODIw';
+		            endif; ?>
+
+					<div id="youkuplayer" style="width:auto;height:auto;"></div>
+
+					<script type="text/javascript" src="http://player.youku.com/jsapi">
+
+					player = new YKU.Player('youkuplayer',{
+
+					styleid: '0',
+
+					client_id: 'YOUR YOUKUOPENAPI CLIENT_ID',
+
+					vid: "{$x}"
+
+					});
+
+					</script>
+
+				</div>
+			</div>
+		</div>
+	</div>
 </block>
