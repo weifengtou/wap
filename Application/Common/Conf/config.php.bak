@@ -31,10 +31,10 @@ return array(
     /* SESSION 和 COOKIE 配置 */
     'SESSION_PREFIX' => 'wft_home', //session前缀
     'COOKIE_PREFIX'  => 'wft_home_', // Cookie前缀 避免冲突
-
     'DEFAULT_FILTER' => 'htmlspecialchars', //全局过滤函数
-
     'HTML_FILE_SUFFIX'  =>  '.html', //设置静态缓存文件后缀
-
     'SHOW_PAGE_TRACE' =>true,
+
+    /* 优酷client_id */
+    'YOUKU_CLIENT_ID'=>'a44de7f86668f0e0',
 );
