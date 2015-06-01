@@ -12,21 +12,13 @@
 		            else:
 		                $x = 'XODMwNjE3ODIw';
 		            endif; ?>
-
 					<div id="youkuplayer" style="width:auto;height:auto;"></div>
-
 					<script type="text/javascript" src="http://player.youku.com/jsapi">
-
 					player = new YKU.Player('youkuplayer',{
-
 					styleid: '0',
-
-					client_id: 'YOUR YOUKUOPENAPI CLIENT_ID',
-
+					client_id: '{:C("YOUKU_CLIENT_ID")}',
 					vid: "{$x}"
-
 					});
-
 					</script>
 				</div>
 				<div>
