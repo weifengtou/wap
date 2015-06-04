@@ -1,17 +1,28 @@
-
+/**/
 .margin-top{
 	margin-top:0px; 
 }
-
+/**/
 .margin-0{
 	margin:0;
 }
-
+/*div居中*/
 .center {
   display: table;
   margin-left: auto;
   margin-right: auto;
 }
+/*字体居中*/
 .text-center {
   text-align: center;
+}
+/*边距，填充，线宽重置0*/
+.reset-0{
+	margin:0;
+	padding:0;
+	border:0;
+}
+/*首页h4*/
+.index-h4{
+	height:40px;line-height:40px;font-size:18px;text-align:center;
 }

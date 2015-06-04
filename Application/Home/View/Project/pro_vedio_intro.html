@@ -1,0 +1,84 @@
+<style>
+	#pro_t1 th,td{
+		text-align: center;
+	}
+</style>
+<div>
+	<h4>
+		<button class="btn" onclick="javascript:history.back();">
+			<a href="javascript:history.back();">
+				<span class="glyphicon glyphicon-arrow-left"></span>
+			</a>
+		</button>
+		{$proInfo[0]['pjname']}
+	</h4>
+	<hr>
+	<div>
+		<?php if ($proInfo[0]['videoweb']):
+			                $x = $proInfo[0]['videoweb'];
+			            else:
+			                $x = 'XODMwNjE3ODIw';
+			            endif; ?>
+		<div id="youkuplayer" style="width:auto;height:auto;"></div>
+		<script type="text/javascript" src="http://player.youku.com/jsapi">
+						player = new YKU.Player('youkuplayer',{
+						styleid: '0',
+						client_id: '{:C("YOUKU_CLIENT_ID")}',
+						vid: "{$x}"
+						});
+						</script>
+	</div>
+	<div>
+		<div class="row">
+			<div class="col-xs-6 center text-center">
+				<span class="text text-info">已筹资</span>
+				<span class="text text-danger">￥300000</span>
+			</div>
+			<div class="col-xs-6 center text-center">
+				<span class="text text-info">目标</span>
+				<span class="text text-danger">￥300000</span>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+				<span class="sr-only">40% Complete (success)</span>
+			</div>
+		</div>
+	</div>
+	<div style="margin-top:20px;">
+		<table id="pro_t1" class="table">
+			<thead>
+				<tr>
+					<th>关注</th>
+					<th>约谈</th>
+					<th>评论</th>
+					<th>认购</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>123</td>
+					<td>123</td>
+					<td>123</td>
+					<td>123</td>
+				</tr>
+				<tr>
+					<td>
+						<button class="btn text-info">关注</button>
+					</td>
+					<td>
+						<button class="btn text-info">约谈</button>
+					</td>
+					<td>
+						<button class="btn text-info">评论</button>
+					</td>
+					<td>
+						<button class="btn text-info">认购</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
