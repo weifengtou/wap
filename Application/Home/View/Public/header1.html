@@ -30,10 +30,10 @@
         </div>
     </div>
     <div class="container-fuild" style="background:#fff;height:40px;margin-bottom:4px;">
-        <div class="col-xs-3 center reset-0 text-center" isActive="Index"><a class="this_1" href="{:U('Index/index')}"><b>首页</b></a></div>
-        <div class="col-xs-3 center reset-0 text-center" isActive="Project"><a class="this_1" href="{:U('Project/projects')}"><b>好项目</b></a></div>
-        <div class="col-xs-3 center reset-0 text-center" isActive="Investor"><a class="this_1" href="{:U('Investor/investors')}"><b>投资人</b></a></div>
-        <div class="col-xs-3 center reset-0 text-center" isActive="News"><a class="this_1" href=""><b>新闻</b></a></div>
+        <div class="col-xs-3 center reset-0 text-center" isActive="Index"><a class="this_1" href="{:U('Index/index')}" style="text-decoration: none;"><b>首页</b></a></div>
+        <div class="col-xs-3 center reset-0 text-center" isActive="Project"><a class="this_1" href="{:U('Project/projects')}" style="text-decoration: none;"><b>好项目</b></a></div>
+        <div class="col-xs-3 center reset-0 text-center" isActive="Investor"><a class="this_1" href="{:U('Investor/investors')}" style="text-decoration: none;"><b>投资人</b></a></div>
+        <div class="col-xs-3 center reset-0 text-center" isActive="News"><a class="this_1" href="{:U('News/index')}" style="text-decoration: none;"><b>新闻</b></a></div>
     </div>
     <style>
     a.this_1{
@@ -43,7 +43,8 @@
     }
     </style>
     <script>
-    $('div[isActive={$Think.CONTROLLER_NAME}]').css({'border-bottom':'4px solid #ccc'})
+    $('div[isActive={$Think.CONTROLLER_NAME}]').css({'border-bottom':'4px solid #ffa800'})
+    $('div[isActive={$Think.CONTROLLER_NAME}]').find('b').css({'color':'#ffa800'})
     </script>
     <!-- <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
         <a href="{:U('Index/index')}" class="btn btn-default" role="button">首页</a>
