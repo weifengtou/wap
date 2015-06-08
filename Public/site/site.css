@@ -1,3 +1,12 @@
+*{
+	margin:0;
+	padding: 0;
+	border: 0;
+}
+body{
+	background: #f7f7f7;
+	max-width:100%;
+}
 /**/
 .margin-top{
 	margin-top:0px; 
@@ -25,4 +34,8 @@
 /*首页h4*/
 .index-h4{
 	height:40px;line-height:40px;font-size:18px;text-align:center;
+}
+/*div外阴影*/
+.out-shadow{
+	box-shadow: 3px 1px 3px #ccc;
 }
