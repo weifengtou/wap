@@ -9,6 +9,10 @@
 </style>
 <?php foreach ($projects as $key =>
 $proInfo): ?>
+<?php 
+$prdetail = get_child_detail($proInfo['id'],$style=1); 
+var_dump($prdetail);
+?>
 <div class="out-shadow" style="background:#fff;">
 	<div class="panel-body reset-0" style="padding:10px;">
 		<div>
