@@ -39,3 +39,7 @@ body{
 .out-shadow{
 	box-shadow: 3px 1px 3px #ccc;
 }
+/*清楚浮动*/
+.clear-both{
+	clear:both;
+}
