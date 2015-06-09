@@ -11,7 +11,6 @@
 $proInfo): ?>
 <?php 
 $prdetail = get_child_detail($proInfo['id'],$style=1); 
-var_dump($prdetail);
 ?>
 <div class="out-shadow" style="background:#fff;">
 	<div class="panel-body reset-0" style="padding:10px;">
@@ -25,20 +24,21 @@ var_dump($prdetail);
 				<a href="{:U('project/proInfo',array('proId'=>$proInfo[id]))}">{$proInfo['pjname']}</a>
 				<p class="reset-0 je_margin_top je_font">
 					<span>融资总额</span>
-					<span>￥3000000</span>
+					<span>￥{$prdetail[0]['budget']}</span>
 				</p>
 				<p class="reset-0 je_margin_top je_font">
 					<span>已融金额</span>
-					<span>￥3000000</span>
+					<span>￥{$prdetail[0]['money']}</span>
 				</p>
+				<?php $x = $prdetail[0]['money']*100/$prdetail[0]['budget']>100?100:$prdetail[0]['money']*100/$prdetail[0]['budget']; ?>
 				<div class="progress reset-0" style="height:5px;margin-top:10px;">
-					<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-						<span class="sr-only">60% Complete (warning)</span>
+					<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {$x}%">
+						<span class="sr-only">已完成{$x}%</span>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</div> 
 <div style="margin-top:5px;"></div>
 <?php endforeach; ?>
