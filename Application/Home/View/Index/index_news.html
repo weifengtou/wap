@@ -1,11 +1,5 @@
 <div class="alert alert-success reset-0 index-h4">
-	新闻
-	<small class="pull-right" style="line-height:40px;">
-		<a href="{:U('News/index')}">
-			更多
-			<span class="glyphicon glyphicon-chevron-right"></span>
-		</a>
-	</small>
+	微风投时讯
 </div>
 <div style="margin-top:10px;"></div>
 <div class="container-fuild">
@@ -17,16 +11,26 @@
 						<a href="" class="thumbnail reset-0">
 							<img class="cover_image" src="{$v['cover_image']}" alt="logo"></a>
 					</div>
-					<div class="col-xs-7 reset-0">
-						test
+					<div class="col-xs-7 reset-0" style="padding-left:10px;">
+						<div>
+							<a href="">{$v[title]}</a>
+						</div>
+						<div style="margin-bottom:0px;">
+							test
+						</div>
 					</div>
 				</div>
 			</div>
 		<?php endforeach; ?>
 	</div>
+	<div class="text-center" style="background:#fff;margin-bottom:5px;">
+		<a href="">浏览更多资讯</a>
+	</div>
 </div>
 <script>
+jQuery(document).ready(function($) {
 	var cover_w = $(".cover_image").width();
 	var cover_h = cover_w*80/125;
 	$(".cover_image").height(cover_h)
+});
 </script>
