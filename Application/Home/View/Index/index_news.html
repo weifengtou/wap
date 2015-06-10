@@ -12,25 +12,34 @@
 							<img class="cover_image" src="{$v['cover_image']}" alt="logo"></a>
 					</div>
 					<div class="col-xs-7 reset-0" style="padding-left:10px;">
-						<div>
-							<a href="">{$v[title]}</a>
+						<div class="news_title">
+							<a href="" style="color:#000;">{$v[title]}</a>
 						</div>
-						<div style="margin-bottom:0px;">
-							test
+						<div class="news_author" style="color:#888;margin-top:20px;">
+							<span>{$v.uid|get_username}&nbsp;&nbsp;&nbsp;&nbsp;{$v.create_time|date='Y-m-d',###}</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		<?php endforeach; ?>
 	</div>
-	<div class="text-center" style="background:#fff;margin-bottom:5px;">
+	<div class="text-center" style="background:#fff;">
 		<a href="">浏览更多资讯</a>
 	</div>
 </div>
 <script>
 jQuery(document).ready(function($) {
+	//新闻图片一致
 	var cover_w = $(".cover_image").width();
 	var cover_h = cover_w*80/125;
 	$(".cover_image").height(cover_h)
+	//作者时间位置
+	$("#news_list").find('.panel-body').each(function (e) {
+		var news_h1 = cover_h
+		var news_h2 = $(this).find('.news_title').height()
+		var news_h3 = $(this).find('.news_author').height()
+		var margin_top_h = news_h1-news_h2-news_h3
+		$(this).find('.news_author').css({'margin-top':margin_top_h})
+	})
 });
 </script>
