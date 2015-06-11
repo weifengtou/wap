@@ -21,7 +21,18 @@ $prdetail = get_child_detail($proInfo['id'],$style=1);
 					<img src="__SOURCE_URL__/Uploads/Album/{$proInfo['logo']}" alt="logo"></a>
 			</div>
 			<div class="col-xs-6 reset-0"  style="padding-left:5px;">
-				<a href="{:U('project/proInfo',array('proId'=>$proInfo[id]))}">{$proInfo['pjname']}</a>
+				<a href="{:U('project/proInfo',array('proId'=>$proInfo[id]))}">
+				<?php 
+					preg_match_all('/./us', $proInfo['pjname'], $match);
+					$x = count($match[0]);
+					if ($x>10) {
+						$x = mb_substr($proInfo['pjname'],0,9)."...";
+					}else{
+						$x = $proInfo['pjname'];
+					}
+				?>
+				{$x}
+				</a>
 				<p class="reset-0 je_margin_top je_font">
 					<span>融资总额</span>
 					<span>￥{$prdetail[0]['budget']}</span>

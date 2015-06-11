@@ -1,0 +1,47 @@
+<extend name="Base/layout"/>
+
+<block name="head">
+    <!-- jquery.mmenu -->
+    <link href="__STATIC__/jQuery.mmenu/dist/css/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
+    <script src="__STATIC__/jQuery.mmenu/dist/js/jquery.mmenu.min.all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#my-menu").mmenu({
+            // options
+        }, {
+            // configuration
+            offCanvas: {
+                pageNodetype: "section"
+            }
+        });
+    });
+    </script>
+</block>
+
+<block name="body">
+    <a href="#my-menu">Open the menu</a>
+    <nav id="my-menu" style="z-index:10px;">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/about/">About us</a>
+                <ul>
+                    <li>
+                        <a href="/about/history/">History</a>
+                    </li>
+                    <li>
+                        <a href="/about/team/">The team</a>
+                    </li>
+                    <li>
+                        <a href="/about/address/">Our address</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/contact/">Contact</a>
+            </li>
+        </ul>
+    </nav>
+</block>
