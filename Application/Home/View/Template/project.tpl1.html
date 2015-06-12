@@ -34,12 +34,12 @@ $prdetail = get_child_detail($proInfo['id'],$style=1);
 				{$x}
 				</a>
 				<p class="reset-0 je_margin_top je_font">
-					<span>融资总额</span>
-					<span>￥{$prdetail[0]['budget']}</span>
-				</p>
-				<p class="reset-0 je_margin_top je_font">
 					<span>已融金额</span>
 					<span>￥{$prdetail[0]['money']}</span>
+				</p>
+				<p class="reset-0 je_margin_top je_font">
+					<span>融资总额</span>
+					<span>￥{$prdetail[0]['budget']}</span>
 				</p>
 				<?php $x = $prdetail[0]['money']*100/$prdetail[0]['budget']>100?100:$prdetail[0]['money']*100/$prdetail[0]['budget']; ?>
 				<div class="progress reset-0" style="height:5px;margin-top:10px;">

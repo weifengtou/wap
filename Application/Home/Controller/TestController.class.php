@@ -11,4 +11,10 @@ class TestController extends HomeController {
     {
     	$this->display();
     }
+
+    //瀑布流加载
+    public function test2()
+    {
+    	$this->display();
+    }
 }

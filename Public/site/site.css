@@ -43,3 +43,11 @@ body{
 .clear-both{
 	clear:both;
 }
+/*背景为白*/
+.bk-fff{
+	background: #fff;
+}
+/*背景为黑*/
+.bk-000{
+	background: #000;
+}
