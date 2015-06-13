@@ -8,10 +8,36 @@ class ProjectController extends HomeController {
 
     public function projects()
     {
-    	$projects = M('Project')->where("prrate>1")->select();
+        $where = $this->getProjects();
+        // yc_vp($where,2);
+        if ($i = I('post.start')) {
+            $i = $i*3;
+            $projects = M('Project')->where($where)->limit($i.",3")->order("order_id")->select();
+            if ($projects) {
+                $this->assign('projects',$projects);
+                $this->display('Template/project.tpl1');
+            }
+        }else{
+        	$projects = M('Project')->where($where)->limit('0,3')->order("order_id")->select();
+        	$this->assign('projects',$projects);
+        	$this->display();
+        }
+    }
 
-    	$this->assign('projects',$projects);
-    	$this->display();
+    public function getProjects()
+    {
+        if ($rz = I("get.rz")) {
+            $where = "prrate>0";
+        }elseif($prrate = I("get.prrate")){
+            $where = "prrate=".$prrate;
+        }elseif($city = I("get.city")){
+            $where = "city=".$city;
+        }elseif($fathertrade = I("get.fathertrade")){
+            $where = "fathertrade=".$fathertrade;
+        }else{
+            $where = "prrate>0";
+        }
+        return $where;
     }
 
     public function proInfo($proId)
