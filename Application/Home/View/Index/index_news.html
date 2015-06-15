@@ -30,7 +30,7 @@
 <script>
 jQuery(document).ready(function($) {
 	//新闻图片一致
-	var cover_w = $(".cover_image").width();
+	var cover_w = $(".cover_image").parents(".col-xs-5").width();
 	var cover_h = cover_w*80/125;
 	$(".cover_image").height(cover_h)
 	//作者时间位置

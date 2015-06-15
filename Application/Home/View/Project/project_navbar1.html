@@ -13,14 +13,14 @@
 	    		"pageshadow"
 	    	],
 	    	navbar:{
-	    		title:"testt",
+	    		title:"请选择",
 	    		titleLink:"none"
 	    	},
 	    	onClick:{
-	    		blockUI:true,
 	    		close:false,
-	    		preventDefault:true,
-	    		setSelected:"selected"
+	    		setSelected:"selected",
+	    		// preventDefault:true，
+	    		blockUI:true
 	    	},
 	    	slidingSubmenus:true
 	    },{
@@ -41,7 +41,7 @@
 	<div class="row reset-0">
 		<div id="prolist_l1" class="col-xs-6 bk-fff text-center active" style="border-right:#f7f7f7 solid 2px;">
 			<div id="pl_image">
-				<a href="">
+				<a href="{:get_url().'&rz=true'}">
 					<img src="__SITE__/images/yire.gif" alt=""></a>
 				<br>
 				<div>微风投认证项目</div>
@@ -49,7 +49,7 @@
 		</div>
 		<div id="prolist_r1" class="col-xs-6 bk-fff text-center" style="border-left:#f7f7f7 solid 2px;">
 			<div id="pr_image">
-				<a href="">
+				<a href="{:get_url().'&rz=false'}">
 					<img src="__SITE__/images/weire.gif" alt=""></a>
 				<br>
 				<div>微风投未认证项目</div>
@@ -94,16 +94,16 @@ jQuery(document).ready(function($) {
 <nav id="sx-menu">
 	<ul>
 		<li>
-			<a href="/">Home</a>
+			<a href="{:get_url().'&rz=true'}">所有项目</a>
 		</li>
 		<li>
-			<a href="/">Home</a>
+			<a href="{:get_url().'&prrate=2'}">预热中</a>
 		</li>
 		<li>
-			<a href="/">Home</a>
+			<a href="{:get_url().'&prrate=3'}">融资中</a>
 		</li>
 		<li>
-			<a href="/">Home</a>
+			<a href="{:get_url().'&prrate=4'}">融资成功</a>
 		</li>
 	</ul>
 </nav>
@@ -116,17 +116,13 @@ $(document).ready(function() {
 <nav id="hy-menu">
 	<ul>
 		<li>
-			<a href="/">Home</a>
+			<a href="{:get_url().'&rz=true'}">所有项目</a>
 		</li>
-		<li>
-			<a href="/">Home</a>
-		</li>
-		<li>
-			<a href="/">Home</a>
-		</li>
-		<li>
-			<a href="/">Home</a>
-		</li>
+		<?php foreach (M('Trade')->where("pid=0")->select() as $k => $v): ?>
+			<li>
+				<a href="{:get_url().'&fathertradeid='.$v['id']}">{$v['trade']}</a>
+			</li>
+		<?php endforeach; ?>
 	</ul>
 </nav>
 <script type="text/javascript">
@@ -138,8 +134,21 @@ $(document).ready(function() {
 <nav id="dq-menu">
 	<ul>
 		<li>
-			<a href="/">Home</a>
+			<a href="{:get_url().'&rz=true'}">所有项目</a>
 		</li>
+		<?php 
+			$china = M('China')->select(); 
+			$cityTree = list_to_tree($china,'id','pid');
+		?>
+		<?php foreach ($cityTree as $k1 => $v1): ?>
+			<li><a href="#{$v1['id']}">{$v1['name']}</a>
+				<ul>
+					<?php foreach ($v1['_child'] as $k2 => $v2): ?>
+						<li><a href="{:get_url().'&cityid='.$v2['id']}">{$v2['name']}</a></li>
+					<?php endforeach; ?>
+				</ul>
+			</li>
+		<?php endforeach; ?>
 	</ul>
 </nav>
 <script type="text/javascript">

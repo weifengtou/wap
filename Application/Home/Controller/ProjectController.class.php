@@ -26,16 +26,24 @@ class ProjectController extends HomeController {
 
     public function getProjects()
     {
-        if ($rz = I("get.rz")) {
-            $where = "prrate>0";
-        }elseif($prrate = I("get.prrate")){
-            $where = "prrate=".$prrate;
-        }elseif($city = I("get.city")){
-            $where = "city=".$city;
-        }elseif($fathertrade = I("get.fathertrade")){
-            $where = "fathertrade=".$fathertrade;
+        $where = '';
+        if (I("get.rz")=="true") {
+            $where = "prrate>1";
+        }elseif(I("get.rz")=="false"){
+            $where = "prrate=1";
+            return $where;
+            exit();
         }else{
             $where = "prrate>0";
+        }
+        if ($prrate = I("get.prrate")) {
+            $where = "prrate=".$prrate;
+        }
+        if ($cityid = I("get.cityid")) {
+            $where = "cityid=".$cityid;
+        }
+        if ($fathertradeid = I("get.fathertradeid")) {
+            $where = "fathertradeid=".$fathertradeid;
         }
         return $where;
     }

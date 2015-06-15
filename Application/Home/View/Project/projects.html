@@ -3,22 +3,5 @@
 <block name="body">
 	<include file="project_navbar1" />
 	<include file="project_list" />
-	<div id="loadshow"></div>
-	<div class="container-fuild"><button id="addpros" class="btn btn-default btn-block">更多</button></div>
-	<script>
-	var i = 1
-	$("#addpros").on('click',function (e) {
-		$("#addpros").text("加载中...")
-		jQuery.post('{:get_url()}', {'start':i}, function(data, textStatus, xhr) {	
-			if (data) {
-				$("#loadshow").append(data)
-				$("#addpros").text("更多")
-			}else{
-				$("#addpros").text("没有更多项目了")
-				$("#addpros").attr({"id":""})
-			}
-			i++
-		});
-	})
-	</script>
+	<include file="project_morepros" />
 </block>
