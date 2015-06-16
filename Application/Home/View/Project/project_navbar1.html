@@ -91,7 +91,7 @@ jQuery(document).ready(function($) {
 });
 </script>
 
-<nav id="sx-menu">
+<nav id="sx-menu" class="this_nav hidden">
 	<ul>
 		<li>
 			<a href="{:get_url().'&rz=true'}">所有项目</a>
@@ -113,7 +113,7 @@ $(document).ready(function() {
 });
 </script>
 
-<nav id="hy-menu">
+<nav id="hy-menu" class="this_nav hidden">
 	<ul>
 		<li>
 			<a href="{:get_url().'&rz=true'}">所有项目</a>
@@ -131,7 +131,7 @@ $(document).ready(function() {
 });
 </script>
 
-<nav id="dq-menu">
+<nav id="dq-menu" class="this_nav hidden">
 	<ul>
 		<li>
 			<a href="{:get_url().'&rz=true'}">所有项目</a>
@@ -154,5 +154,11 @@ $(document).ready(function() {
 <script type="text/javascript">
 $(document).ready(function() {
     $("#dq-menu").mmenu(mmenu_conf);
+});
+</script>
+
+<script>
+jQuery(document).ready(function($) {
+	$(".this_nav").removeClass('hidden')
 });
 </script>

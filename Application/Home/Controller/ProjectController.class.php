@@ -9,7 +9,6 @@ class ProjectController extends HomeController {
     public function projects()
     {
         $where = $this->getProjects();
-        // yc_vp($where,2);
         if ($i = I('post.start')) {
             $i = $i*3;
             $projects = M('Project')->where($where)->limit($i.",3")->order("order_id")->select();
@@ -38,11 +37,9 @@ class ProjectController extends HomeController {
         }
         if ($prrate = I("get.prrate")) {
             $where = "prrate=".$prrate;
-        }
-        if ($cityid = I("get.cityid")) {
+        }elseif ($cityid = I("get.cityid")) {
             $where = "cityid=".$cityid;
-        }
-        if ($fathertradeid = I("get.fathertradeid")) {
+        }elseif ($fathertradeid = I("get.fathertradeid")) {
             $where = "fathertradeid=".$fathertradeid;
         }
         return $where;
@@ -53,12 +50,13 @@ class ProjectController extends HomeController {
     	if (!$proId) {
     		$this->error("链接错误！");
     	}else{
-    		$proInfo = M('Project')->where("id=".$proId)->limit("1")->select();
+    		// $proInfo = M('Project')->where("id=".$proId)->limit("1")->select();
+            $proInfo = get_child_detail($proId,1);
     		if (!$proInfo) {
     			$this->error("链接错误！");
     		}else{
     			$this->assign("proInfo",$proInfo);
-    			$this->display();
+    			$this->display('proInfo1');
     		}
     	}
     }

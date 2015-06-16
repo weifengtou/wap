@@ -937,9 +937,14 @@ function get_child_detail($child_id,$style=0)
 {
 	if ($style==1):
 		$info = M("Project")->where("id='$child_id'")->limit("1")->select();
+		/*logo*/
+		$info[0]['logo'] = "Uploads/Album/".$info[0]['logo'];
 		/*项目描述*/
         $x = M("Prdescription")->where("prid='$child_id'")->find();
         $info[0]['prdescription'] = $x['prdescription'];
+        /*融资状态*/
+        $x = M("Prrate")->where("prrateid=".$info[0]['prrate'])->find();
+        $info[0]['prratename'] = $x['prratename'];
         /*融资需求*/
         $x = M("Financingneeds")->where("prid='$child_id'")->find();
         $info[0]['budget'] = number_format($x['budget']);
@@ -949,6 +954,9 @@ function get_child_detail($child_id,$style=0)
         foreach ($x as $k => $v) {
         	$y = $y + $v['money'];
         }
+        /*成员*/
+        $x = M('Prmember')->where("prid='$child_id'")->select();
+        $info[0]['prmembers'] = $x;
         $info[0]['money'] = number_format($y);
     elseif($style==2):
         $info = M('Investor')->where("id='$child_id'")->select();

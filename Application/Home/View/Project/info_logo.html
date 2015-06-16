@@ -1,0 +1,31 @@
+<style>
+	.part_logo{
+		background:#fff;
+		/*padding:10px;*/
+		margin-bottom: 5px;
+	}
+	.part_logo .img-responsive{
+		/*border: 1px solid #ccc;*/
+		/*padding: 10px 0 0 0;*/
+	}
+	.part_logo .logo_title{
+		height:40px;
+		line-height: 40px;
+	}
+</style>
+<script>
+jQuery(document).ready(function($) {
+	var x_width = $(".part_logo").width()
+	$(".part_logo").find(".img-responsive").width(x_width)
+});
+</script>
+<div class="container part_logo">
+	<div>
+		<img src="__SOURCE_URL__/{$proInfo[0]['logo']}" class="img-responsive"></div>
+	<div class="logo_title">
+		<div class="pull-left"><img onClick="javascript :history.back(-1);" src="" alt="返回"></div>
+		<div class="pull-right"><img src="" alt="分享"></div>
+		<div class="center"> <b style="font-size:15px;">{$proInfo[0]['pjname']}</b>
+		</div>
+	</div>
+</div>

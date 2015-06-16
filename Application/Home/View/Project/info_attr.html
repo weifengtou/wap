@@ -1,0 +1,33 @@
+<style>
+		.part_attr{
+			background: #fff;
+		} 
+		.part_attr .col-xs-4{
+			height:40px;
+			line-height: 40px;
+			font-size: 16px;
+			color: #888;
+		}
+		.part_attr .col-xs-6{
+			color:red;
+		}
+	</style>
+<div class="container part_attr">
+	<div>
+		<?php foreach ($proInfo[0]['prmembers'] as $k => $v): ?>
+			<?php if ($v['memberroleid']==0): ?>
+				发起人：{$v['membername']}【{$v['memberposition']}】
+			<?php endif; ?>
+		<?php endforeach; ?>
+		</div>
+	<div>
+		<div class="col-xs-4 reset-0 text-center">{$proInfo[0]['city']}</div>
+		<div class="col-xs-4 reset-0 text-center">{$proInfo[0]['fathertrade']}</div>
+		<div class="col-xs-4 reset-0 text-center">{$proInfo[0]['prratename']}</div>
+	</div>
+	<div>
+		<div class="col-xs-6 reset-0 text-left">已融资：￥{$proInfo[0]['money']}</div>
+		<div class="col-xs-6 reset-0 text-right">目标：￥{$proInfo[0]['budget']}</div>
+	</div>
+	<!-- {:yc_vp($proInfo,1)} -->
+</div>

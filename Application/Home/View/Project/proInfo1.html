@@ -1,0 +1,30 @@
+<extend name="Base/layout"/>
+
+<block name="body">
+	<include file="info_logo" />
+	<include file="info_attr" />
+	<style>
+	#info_toggles{
+		background: #fff;
+		margin-top: 5px;
+	}
+	</style>
+	<script>
+	jQuery(document).ready(function($) {
+		$("#info_toggles").find(".panel-heading").on('click',function (e) {
+			$(".accordion-toggle").html('<span class="glyphicon glyphicon-plus"></span>')
+			if ($(this).attr("aria-expanded")!="true") {
+				$(this).find(".accordion-toggle").html('<span class="glyphicon glyphicon-minus"></span>')
+			}else{
+				$(this).find(".accordion-toggle").html('<span class="glyphicon glyphicon-plus"></span>')
+			}
+		})
+	});
+	</script>
+	<div class="panel-group" id="info_toggles">
+		<include file="toggle_describe" />
+		<include file="toggle_team" />
+		<include file="toggle_cert" />
+		<include file="toggle_photos" />
+	</div>
+</block>
