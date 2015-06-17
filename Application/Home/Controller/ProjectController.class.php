@@ -14,7 +14,7 @@ class ProjectController extends HomeController {
             $projects = M('Project')->where($where)->limit($i.",3")->order("order_id")->select();
             if ($projects) {
                 $this->assign('projects',$projects);
-                $this->display('Template/project.tpl1');
+                $this->display('Template/project_list.tpl1');
             }
         }else{
         	$projects = M('Project')->where($where)->limit('0,3')->order("order_id")->select();

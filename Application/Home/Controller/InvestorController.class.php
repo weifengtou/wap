@@ -8,7 +8,14 @@ class InvestorController extends HomeController {
 
     public function investors()
     {
+    	$where = $this->getinvestors();
     	$this->display();
+    }
+
+    public function getinvestors()
+    {
+    	$where = '';
+    	return $where;
     }
     
 }

@@ -13,11 +13,11 @@
 		}
 	</style>
 <div class="container part_attr">
-	<div>
+	<div>发起人：
 		<?php foreach ($proInfo[0]['prmembers'] as $k => $v): ?>
-			<?php if ($v['memberroleid']==0): ?>
-				发起人：{$v['membername']}【{$v['memberposition']}】
-			<?php endif; ?>
+			<?php if ($v['memberroleid']=='0'): ?>
+				{$v['membername']}【{$v['memberposition']}】
+			<?php break;endif; ?>
 		<?php endforeach; ?>
 		</div>
 	<div>
@@ -29,5 +29,4 @@
 		<div class="col-xs-6 reset-0 text-left">已融资：￥{$proInfo[0]['money']}</div>
 		<div class="col-xs-6 reset-0 text-right">目标：￥{$proInfo[0]['budget']}</div>
 	</div>
-	<!-- {:yc_vp($proInfo,1)} -->
 </div>

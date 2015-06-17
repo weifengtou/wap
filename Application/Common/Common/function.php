@@ -958,6 +958,12 @@ function get_child_detail($child_id,$style=0)
         $x = M('Prmember')->where("prid='$child_id'")->select();
         $info[0]['prmembers'] = $x;
         $info[0]['money'] = number_format($y);
+        /*认证*/
+        $x = M('Companydata')->where("prid='$child_id'")->select();
+        $info[0]['certInfo'] = $x;
+        /*项目图片*/
+        $x = M('Primages')->where("prid='$child_id'")->select();
+        $info[0]['primages'] = $x;
     elseif($style==2):
         $info = M('Investor')->where("id='$child_id'")->select();
 	else:
