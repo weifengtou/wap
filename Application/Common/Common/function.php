@@ -966,6 +966,16 @@ function get_child_detail($child_id,$style=0)
         $info[0]['primages'] = $x;
     elseif($style==2):
         $info = M('Investor')->where("id='$child_id'")->select();
+    	/*logo*/
+    	if ($info[0]['face_img']) {
+    		$info[0]['logo'] = "Uploads/Investor/".$info[0]['face_img'];
+    	}else{
+    		$info[0]['logo'] = "/Public/static/images/nop.gif";
+    	}
+    	/*homeuser信息*/
+    	$x = M('Homeuser')->where("id=".$info[0]['uid'])->find();
+    	$info[0]['username'] = $x['username'];
+    	$info[0]['email'] = $x['email'];
 	else:
 		$this->error("信息有误！");
 	endif;

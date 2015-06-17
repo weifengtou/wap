@@ -1,0 +1,121 @@
+<!-- jquery.mmenu -->
+<link href="__STATIC__/jQuery.mmenu/dist/css/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
+<script src="__STATIC__/jQuery.mmenu/dist/js/jquery.mmenu.min.all.js" type="text/javascript"></script>
+<script>
+	jQuery(document).ready(function($) {
+		mmenu_conf = {
+			 offCanvas: {
+               position  : "left",
+               zposition : "front"
+            },
+	    	extensions: [
+	    		"theme-dark",
+	    		"pageshadow"
+	    	],
+	    	navbar:{
+	    		title:"请选择",
+	    		titleLink:"none"
+	    	},
+	    	onClick:{
+	    		close:false,
+	    		setSelected:"selected",
+	    		// preventDefault:true，
+	    		blockUI:true
+	    	},
+	    	slidingSubmenus:true
+	    },{
+	    	classNames:{
+	    		divider:"Divider",
+	    		panel:"Panel",
+	    		selected:"Selected",
+	    		vertical:"Vertical"
+	    	},
+	    	// clone:true,
+	    	openingInterval:50,
+	    	// panelNodetype:"div, ul, ol",
+	    	transitionDuration:800
+	    }
+	});
+</script>
+<div class="container-fuild" style="margin-top:5px;">
+	<div class="row text-center reset-0 bk-fff" style="box-shadow: 1px 2px 3px #888;height:40px;line-height:40px;">
+		<div class="col-xs-4">
+			<a class="my_menu" href="#sx-menu">属性</a>
+		</div>
+		<div class="col-xs-4">
+			<a class="my_menu" href="#hy-menu">行业</a>
+		</div>
+		<div class="col-xs-4">
+			<a class="my_menu" href="#dq-menu">地区</a>
+		</div>
+	</div>
+</div>
+
+<nav id="sx-menu" class="this_nav hidden">
+	<ul>
+		<li>
+			<a href="{:get_url().'&sx=all'}">所有项目</a>
+		</li>
+		<li>
+			<a href="{:get_url().'&sx=gr'}">个人投资者</a>
+		</li>
+		<li>
+			<a href="{:get_url().'&sx=jg'}">机构投资者</a>
+		</li>
+	</ul>
+</nav>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#sx-menu").mmenu(mmenu_conf);
+});
+</script>
+
+<nav id="hy-menu" class="this_nav hidden">
+	<ul>
+		<li>
+			<a href="{:get_url().'&rz=true'}">所有项目</a>
+		</li>
+		<?php foreach (M('Trade')->where("pid=0")->select() as $k => $v): ?>
+			<li>
+				<a href="{:get_url().'&fathertradeid='.$v['id']}">{$v['trade']}</a>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+</nav>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#hy-menu").mmenu(mmenu_conf);
+});
+</script>
+
+<nav id="dq-menu" class="this_nav hidden">
+	<ul>
+		<li>
+			<a href="{:get_url().'&rz=true'}">所有项目</a>
+		</li>
+		<?php 
+			$china = M('China')->select(); 
+			$cityTree = list_to_tree($china,'id','pid');
+		?>
+		<?php foreach ($cityTree as $k1 => $v1): ?>
+			<li><a href="#{$v1['id']}">{$v1['name']}</a>
+				<ul>
+					<?php foreach ($v1['_child'] as $k2 => $v2): ?>
+						<li><a href="{:get_url().'&cityid='.$v2['id']}">{$v2['name']}</a></li>
+					<?php endforeach; ?>
+				</ul>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+</nav>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#dq-menu").mmenu(mmenu_conf);
+});
+</script>
+
+<script>
+jQuery(document).ready(function($) {
+	$(".this_nav").removeClass('hidden')
+});
+</script>

@@ -1,0 +1,6 @@
+<div class="text-center" style="color:red">目前共有<?php echo count(M('Investor')->where("iden_status>1")->field("id")->select()); ?>个投资人</div>
+<div class="container reset-0">
+	<div>
+		<include file="Template:investor_list.tpl" />
+	</div>
+</div>

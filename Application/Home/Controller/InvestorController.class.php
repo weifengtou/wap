@@ -9,7 +9,18 @@ class InvestorController extends HomeController {
     public function investors()
     {
     	$where = $this->getinvestors();
-    	$this->display();
+    	if ($i = I('post.start')) {
+            $i = $i*3;
+            $investors = M('Investor')->where($where)->limit($i.",3")->select();
+            if ($investors) {
+                $this->assign('investors',$investors);
+                $this->display('Template/project_list.tpl1');
+            }
+        }else{
+        	$investors = M('Investor')->where($where)->limit('0,3')->select();
+        	$this->assign('investors',$investors);
+        	$this->display();
+        }
     }
 
     public function getinvestors()

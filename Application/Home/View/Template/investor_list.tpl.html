@@ -1,0 +1,29 @@
+<?php foreach ($investors as $key =>
+$invInfo): ?>
+<?php 
+$invdetail = get_child_detail($invInfo['id'],$style=2); 
+?>
+<div class="out-shadow" style="background:#fff;">
+	<div class="panel-body reset-0" style="padding:10px;">
+		<div class="inv_info">
+			<div class="contailer-fuild">
+				<div class="row">
+					<div class="col-xs-4"><img src="__SOURCE_URL__/{$invdetail[0]['logo']}" class="img-circle img-responsive"></div>
+					<div class="col-xs-8">
+						<h5><?php echo $invdetail[0]['realname']?$invdetail[0]['realname']:$invdetail[0]['username'] ?></h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> 
+<div style="margin-top:5px;"></div>
+<?php endforeach; ?>
+<script>
+jQuery(document).ready(function($) {
+	//项目图片图片等比显示
+	var xwidth = $(".invLogo").parents(".col-xs-6").width();
+	var xheight = xwidth*80/145
+	$(".invLogo").height(xheight)
+});
+</script>
