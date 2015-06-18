@@ -10,7 +10,7 @@ $invdetail = get_child_detail($invInfo['id'],$style=2);
 				<div class="row reset-0">
 					<div class="col-xs-3 reset-0"><img src="__SOURCE_URL__/{$invdetail[0]['logo']}" class="img-circle img-responsive"></div>
 					<div class="col-xs-9 reset-0" style="padding-left:5px;">
-						<h5 class="reset-0"><b><?php echo $invdetail[0]['realname']?$invdetail[0]['realname']:$invdetail[0]['username'] ?></b></h5>
+						<h5 class="reset-0"><b><?php echo $invdetail[0]['showname']?$invdetail[0]['showname']:$invdetail[0]['username'] ?></b></h5>
 						<div style="margin-top:4px;">
 							投资意向：
 							<?php 
@@ -27,9 +27,15 @@ $invdetail = get_child_detail($invInfo['id'],$style=2);
 						</div>
 						<div class="container-fuild color-888" style="font-size:13px;margin-top:1px;">
 							<div class="row reset-0">
-								<div class="col-xs-4 reset-0 text-left">粉丝</div>
-								<div class="col-xs-4 reset-0 text-center">约谈</div>
-								<div class="col-xs-4 reset-0 text-right">投资</div>
+								<div class="col-xs-4 reset-0 text-left">粉丝:<?php
+									echo count(M('Attention')->where("atted_id=".$invdetail[0]['uid'])->field("id")->select());
+								?></div>
+								<div class="col-xs-4 reset-0 text-center">约谈:<?php
+									echo count(M('Webmsg')->where("sendid=".$invdetail[0]['uid']." OR receiveuid=".$invdetail[0]['uid'])->field("id")->select());
+								?></div>
+								<div class="col-xs-4 reset-0 text-right">投资:<?php
+									echo count(M('Financing')->where("pid=".$invdetail[0]['uid'])->field("id")->select());
+								?></div>
 							</div>
 						</div>
 					</div>

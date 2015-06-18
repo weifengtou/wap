@@ -73,7 +73,7 @@ $(document).ready(function() {
 <nav id="hy-menu" class="this_nav hidden">
 	<ul>
 		<li>
-			<a href="{:get_url().'&rz=true'}">所有项目</a>
+			<a href="{:get_url().'&fathertradeid=all'}">所有项目</a>
 		</li>
 		<?php foreach (M('Trade')->where("pid=0")->select() as $k => $v): ?>
 			<li>
@@ -91,7 +91,7 @@ $(document).ready(function() {
 <nav id="dq-menu" class="this_nav hidden">
 	<ul>
 		<li>
-			<a href="{:get_url().'&rz=true'}">所有项目</a>
+			<a href="{:get_url().'&shiid=all'}">所有项目</a>
 		</li>
 		<?php 
 			$china = M('China')->select(); 
@@ -101,7 +101,7 @@ $(document).ready(function() {
 			<li><a href="#{$v1['id']}">{$v1['name']}</a>
 				<ul>
 					<?php foreach ($v1['_child'] as $k2 => $v2): ?>
-						<li><a href="{:get_url().'&cityid='.$v2['id']}">{$v2['name']}</a></li>
+						<li><a href="{:get_url().'&shiid='.$v2['id']}">{$v2['name']}</a></li>
 					<?php endforeach; ?>
 				</ul>
 			</li>

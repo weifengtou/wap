@@ -25,8 +25,24 @@ class InvestorController extends HomeController {
 
     public function getinvestors()
     {
-    	$where = '';
+    	$where = NULL;
+    	if (I('get.sx')=='all') {
+    		$where = NULL;
+    	}elseif (I('get.sx')=='gr') {
+    		$where = "type=1";
+    	}elseif (I('get.sx')=='jg') {
+    		$where = "type=2";
+    	}
+    	if(I('get.fathertradeid')!='all'){
+    		$where = "fathertradeid like %".I('get.fathertradeid')."%";
+    	}else{
+    		$where = NULL;
+    	}
+    	if(I('get.shiid')&&I('get.shiid')!='all'){
+    		$where = "shiid=".I('get.shiid');
+    	}else{
+    		$where = NULL;
+    	}
     	return $where;
     }
-    
 }

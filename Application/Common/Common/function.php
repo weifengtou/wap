@@ -976,6 +976,16 @@ function get_child_detail($child_id,$style=0)
     	$x = M('Homeuser')->where("id=".$info[0]['uid'])->find();
     	$info[0]['username'] = $x['username'];
     	$info[0]['email'] = $x['email'];
+    	/*showname*/
+    	if($info[0][privacy]==0):
+            if($info[0][sex]==1):
+                $info[0][showname] = mb_substr($info[0][realname], 0,1,'utf-8').'先生';
+            else:
+                $info[0][showname] = mb_substr($info[0][realname], 0,1,'utf-8').'女士';
+            endif;
+        else:
+            $info[0][showname] = $info[0][realname];
+        endif;
 	else:
 		$this->error("信息有误！");
 	endif;
