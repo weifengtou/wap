@@ -981,3 +981,25 @@ function get_child_detail($child_id,$style=0)
 	endif;
 	return $info;
 }
+/**
+ * 缩略金额显示
+ * @param  int $money 
+ * @return int | string $money
+ */
+function breviary_money($money)
+{
+	if ($money>0&&$money%10000000==0) {
+		$money = $money/10000;
+		$money = $money."万";
+	}
+	return $money;
+}
+/**
+ * 缩略复杂字符串长度
+ * @param  string $str
+ * @return string $str
+ */
+function breviary_string($str)
+{
+	return $str;
+}

@@ -21,10 +21,6 @@ body{
   margin-left: auto;
   margin-right: auto;
 }
-/*字体居中*/
-.text-center {
-  text-align: center;
-}
 /*边距，填充，线宽重置0*/
 .reset-0{
 	margin:0;
@@ -50,4 +46,8 @@ body{
 /*背景为黑*/
 .bk-000{
 	background: #000;
+}
+/*字体颜色888*/
+.color-888{
+	color: #888;
 }
