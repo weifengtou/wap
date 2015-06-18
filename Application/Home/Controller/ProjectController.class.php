@@ -50,7 +50,6 @@ class ProjectController extends HomeController {
     	if (!$proId) {
     		$this->error("链接错误！");
     	}else{
-    		// $proInfo = M('Project')->where("id=".$proId)->limit("1")->select();
             $proInfo = get_child_detail($proId,1);
     		if (!$proInfo) {
     			$this->error("链接错误！");
