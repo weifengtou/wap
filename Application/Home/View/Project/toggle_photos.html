@@ -2,19 +2,35 @@
 	<div class="panel-heading" data-toggle="collapse" data-parent="#info_toggles" href="#图片展示">
 		<div class="panel_heading_title">
 			图片展示
-			<a class="accordion-toggle pull-right">
+			<a class="accordion-toggle pull-right" attrLinkId="图片展示">
 				<span class="glyphicon glyphicon-plus"></span>
 			</a>
+		</div>
+	</div>
+	<div id="图片展示" class="panel-collapse collapse" style="height: auto;">
+		<div class="panel-body">
+			<?php foreach ($proInfo[0]['primages'] as $k => $v): ?>
+				<div class="primage text-center"><a href="__SOURCE_URL__/Uploads/PrImages/{$v['name']}" class="thumbnail_x"><img src="__SOURCE_URL__/Uploads/PrImages/{$v['thumbname']}"></a></div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 	<!-- layer -->
     <script src="__STATIC__/layer-v1.9.2/layer/layer.js"></script>
     <script src="__STATIC__/layer-v1.9.2/layer/extend/layer.ext.js"></script>
-	<div id="图片展示" class="panel-collapse collapse" style="height: auto;">
-		<div class="panel-body">
-			<?php foreach ($proInfo[0]['primages'] as $k => $v): ?>
-				<div class="primage text-center"><a href="__SOURCE_URL__/Uploads/PrImages/{$v['name']}" class="thumbnail"><img src="__SOURCE_URL__/Uploads/PrImages/{$v['thumbname']}"></a></div>
-			<?php endforeach; ?>
-		</div>
-	</div>
+	<style>
+	.primage{
+		margin-bottom: 10px;
+	}
+	.thumbnail_x img{
+		padding:4px;
+		border:1px #ccc solid;
+		/*border-radius:5px 5px 5px 5px;*/
+	}
+	.panel{
+		/*border:#333;*/
+	}
+	</style>
+	<script>
+	$(".primage").last().css({"margin-bottom":'0'})
+	</script>
 </div>

@@ -1,5 +1,4 @@
-
-<div class="panel">
+<div class="panel border_bottom-xxx">
 	<div class="panel-heading" data-toggle="collapse" data-parent="#info_toggles" href="#微风投认证">
 		<div class="panel_heading_title">
 			认证信息
@@ -8,12 +7,6 @@
 			</a>
 		</div>
 	</div>
-	<style>
-		.cert_info{
-			margin: 10px 0 0 10px;
-			font-weight: blod;
-		}
-	</style>
 	<div id="微风投认证" class="panel-collapse collapse" style="height: auto;">
 		<div class="panel-body">
 			<?php if ($proInfo[0]['prrate']>1): ?>
@@ -33,4 +26,10 @@
 			<div class="cert_info">公司照片<span class="glyphicon glyphicon-<?php echo $proInfo[0]['certInfo'][0]['companyimg']?'ok':'remove'; ?> pull-right"></span></div>
 		</div>
 	</div>
+	<style>
+		.cert_info{
+			margin: 10px 0 0 10px;
+			font-weight: blod;
+		}
+	</style>
 </div>

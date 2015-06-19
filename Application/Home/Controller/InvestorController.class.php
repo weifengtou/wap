@@ -45,4 +45,19 @@ class InvestorController extends HomeController {
     	}
     	return $where;
     }
+
+    public function invInfo($invId)
+    {
+    	if (!$invId) {
+    		$this->error("链接错误！");
+    	}else{
+            $invInfo = get_child_detail($invId,2);
+    		if (!$invInfo) {
+    			$this->error("链接错误！");
+    		}else{
+    			$this->assign("invInfo",$invInfo);
+    			$this->display();
+    		}
+    	}
+    }
 }

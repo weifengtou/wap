@@ -1,24 +1,3 @@
-<style>
-	.part_logo{
-		background:#fff;
-		/*padding:10px;*/
-		margin-bottom: 5px;
-	}
-	.part_logo .img-responsive{
-		/*border: 1px solid #ccc;*/
-		/*padding: 10px 0 0 0;*/
-	}
-	.part_logo .logo_title{
-		height:40px;
-		line-height: 40px;
-	}
-</style>
-<script>
-jQuery(document).ready(function($) {
-	var x_width = $(".part_logo").width()
-	$(".part_logo").find(".img-responsive").width(x_width)
-});
-</script>
 <div class="container part_logo">
 	<div>
 		<img src="__SOURCE_URL__/{$proInfo[0]['logo']}" class="img-responsive"></div>
@@ -28,4 +7,25 @@ jQuery(document).ready(function($) {
 		<div class="center"> <b style="font-size:15px;">{$proInfo[0]['pjname']}</b>
 		</div>
 	</div>
+	<style>
+		.part_logo{
+			background:#fff;
+			/*padding:10px;*/
+			margin-bottom: 5px;
+		}
+		.part_logo .img-responsive{
+			/*border: 1px solid #ccc;*/
+			/*padding: 10px 0 0 0;*/
+		}
+		.part_logo .logo_title{
+			height:40px;
+			line-height: 40px;
+		}
+	</style>
 </div>
+<script>
+jQuery(document).ready(function($) {
+	var x_width = $(".part_logo").width()
+	$(".part_logo").find(".img-responsive").width(x_width)
+});
+</script>

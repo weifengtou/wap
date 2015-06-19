@@ -1,0 +1,43 @@
+<div class="container part_logo">
+	<div>
+		<img src="__SITE__/images/testinvimg.png" class="img-responsive">
+		<div id="logo_in_banner"><img class="img-circle img-responsive" src="__SOURCE_URL__/{$invInfo[0]['logo']}" alt=""></div>
+	</div>
+	<div class="logo_title">
+		<div class="pull-left"><img onClick="javascript :history.back(-1);" src="" alt="返回"></div>
+		<div class="pull-right"><img src="" alt="分享"></div>
+		<div class="center"> <b style="font-size:15px;">{$invInfo[0]['showname']}</b>
+		</div>
+	</div>
+	<style>
+		#logo_in_banner{
+			position: absolute;
+		}
+		#logo_in_banner img{
+			border: #fff 2px solid;
+		}
+		.part_logo{
+			background:#fff;
+			/*padding:10px;*/
+			margin-bottom: 5px;
+		}
+		.part_logo .img-responsive{
+			/*border: 1px solid #ccc;*/
+			/*padding: 10px 0 0 0;*/
+		}
+		.part_logo .logo_title{
+			height:40px;
+			line-height: 40px;
+		}
+	</style>
+	<script>
+	jQuery(document).ready(function($) {
+		var x_width = $(".part_logo").width()
+		$(".part_logo").find(".img-responsive").width(x_width)
+		var logo_in_banner_w = x_width/3
+		var logo_in_banner_h = (x_width*160/300)
+		$("#logo_in_banner").width(logo_in_banner_w)
+		$("#logo_in_banner").css({"margin-left":logo_in_banner_w,'margin-top':-logo_in_banner_h})
+	});
+	</script>
+</div>

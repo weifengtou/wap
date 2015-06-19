@@ -1,4 +1,4 @@
-<div class="panel">
+<div class="panel border_bottom-xxx">
 	<div class="panel-heading" data-toggle="collapse" data-parent="#info_toggles" href="#我们的团队">
 		<div class="panel_heading_title">
 			我们的团队
@@ -6,23 +6,26 @@
 				<span class="glyphicon glyphicon-plus"></span>
 			</a>
 		</div>
-		
 	</div>
 	<div id="我们的团队" class="panel-collapse collapse" style="height: 0px;">
 		<div class="panel-body">
-			<?php foreach ($proInfo[0]['prmembers'] as $k => $v): ?>
-				<div class="container reset-0">
-					<div class="col-xs-4 reset-0 memberimage"><img class="img-circle img-responsive" src="__SOURCE_URL__/Uploads/Portrait/{$v['photo']}"></div>
-					<div class="col-xs-8 reset-0" style="padding-left:10px;">
-						{$v['membername']}【{$v['memberposition']}】
-						<br>
-						<div style="color:#888888">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$v['memberintroduce']}
+			<?php if ($proInfo[0]['prmembers']): ?>
+				<?php foreach ($proInfo[0]['prmembers'] as $k => $v): ?>
+					<div class="container reset-0">
+						<div class="col-xs-4 reset-0 memberimage"><img class="img-circle img-responsive" src="__SOURCE_URL__/Uploads/Portrait/{$v['photo']}"></div>
+						<div class="col-xs-8 reset-0" style="padding-left:10px;">
+							{$v['membername']}【{$v['memberposition']}】
+							<br>
+							<div style="color:#888888">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$v['memberintroduce']}
+							</div>
 						</div>
 					</div>
-				</div>
-				<br>
-			<?php endforeach; ?>
+					<div class="dashed"></div>
+				<?php endforeach; ?>
+			<?php else: ?>
+				<div class="text-center">暂无团队</div>
+			<?php endif; ?>
 		</div>
 	</div>
 	<script>
@@ -31,6 +34,7 @@
 			var memberimage_height = $(".panel_heading_title").width()/3
 			$(".memberimage").find("img").css({'height':memberimage_height,'width':memberimage_height})
 		})
+		$(".dashed").last().remove()
 	});
 	</script>
 </div>

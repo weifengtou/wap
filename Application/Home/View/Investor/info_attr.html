@@ -1,0 +1,28 @@
+<style>
+		.part_attr{
+			background: #fff;
+		} 
+		.part_attr .col-xs-4{
+			height:40px;
+			line-height: 40px;
+			font-size: 15px;
+			color: #888;
+			border-top: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			margin-top: 10px;
+		}
+		.part_attr .col-xs-12 span{
+			color:red;
+		}
+	</style>
+<div class="container part_attr">
+	<div>
+		<div class="col-xs-4 reset-0 text-center">{$invInfo[0]['sheng']}</div>
+		<div class="col-xs-4 reset-0 text-center" style="border-left:1px solid #ccc;border-right:1px solid #ccc;">{$invInfo[0]['shi']}</div>
+		<div class="col-xs-4 reset-0 text-center">{$invInfo[0]['qu']}</div>
+	</div>
+	<div style="height:30px;line-height:30px;">
+		<div class="col-xs-12 reset-0 text-left">一年融资计划：<span>{$invInfo[0]['tz_num']}</span>个</div>
+		<div class="col-xs-12 reset-0 text-left">单个项目融资额度：<span>￥{$invInfo[0]['min_maney']}-￥{$invInfo[0]['max_maney']}</span></div>
+	</div>
+</div>
