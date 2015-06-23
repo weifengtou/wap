@@ -9,7 +9,14 @@
 	</div>
 	<div id="投资案例" class="panel-collapse collapse" style="height: auto;">
 		<div class="panel-body">
-
+			<?php $cases = M('InvCase')->where("inv_id=".$invInfo[0]['id'])->select(); ?>
+			<?php if (!$cases): ?>
+				暂无
+			<?php else: ?>
+				<?php foreach ($cases as $k => $v): ?>
+					{$v['pname']}:{$v['purl']}
+				<?php endforeach; ?>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>

@@ -18,3 +18,5 @@ jQuery(document).ready(function($) {
 $(window).resize(function(event) {
 	wrap_ready_resize ()
 });
+
+var img_proLogo_resize_hasfun = '0'

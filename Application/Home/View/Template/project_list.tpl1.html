@@ -51,18 +51,16 @@ $prodetail = get_child_detail($proInfo['id'],$style=1);
 		</div>
 	</div>
 </div> 
-<div style="margin-top:5px;"></div>
+<div class="pros_margin_top_5" style="margin-top:5px;"></div>
 <?php endforeach; ?>
 <script>
 jQuery(document).ready(function($) {
 	//项目图片图片等比显示
-	var xwidth = $(".proLogo").parents(".col-xs-6").width();
-	var xheight = xwidth*80/145
-	$(".proLogo").height(xheight)
-	//项目描述排版
-	// var proLink = $(".proLink").height()
-	// var proBudget = $(".proBudget").height()
-	// var x = xheight - proLink - proBudget
-	// $(".proBudget").css({"margin-top":x})
+	$("img.proLogo").resize(function(e){
+		var xwidth = $(".proLogo").parents(".col-xs-6").width();
+		var xheight = xwidth*80/145
+		$(".proLogo").height(xheight)
+	})
+	$(".pros_margin_top_5").last().remove()
 });
 </script>

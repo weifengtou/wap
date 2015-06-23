@@ -9,7 +9,14 @@
 	</div>
 	<div id="已投资的项目" class="panel-collapse collapse" style="height: auto;">
 		<div class="panel-body">
-			
+			<?php 
+				$projects = M('Financing')->where("pid=".$invInfo[0]['uid'])->field("prid AS id")->select();
+			?>
+			<?php if ($projects): ?>
+				<include file="Template:project_list.tpl1" />
+			<?php else: ?>
+				<div class="panel-body">暂无</div>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>

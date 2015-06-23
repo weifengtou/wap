@@ -8,15 +8,26 @@
 		</div>
 	</div>
 	<div id="关注的项目" class="panel-collapse collapse" style="height: auto;">
-		<div class="panel-body">
+		<div class="panel-body reset-0">
 			<?php 
 				$projects = M('Attention')->where("uid=".$invInfo[0]['uid']." AND attd_style=1")->field("atted_childid AS id")->select();
 			?>
 			<?php if ($projects): ?>
 				<include file="Template:project_list.tpl1" />
 			<?php else: ?>
-				暂无	
+				<div class="panel-body">暂无</div>
 			<?php endif; ?>
 		</div>
 	</div> 
+	<script>
+	$(".panel-heading[href=#关注的项目]").on('click',function (e) {
+		//项目图片图片等比显示
+		$("img.proLogo").resize(function(e){
+			var xwidth = $(".proLogo").parents(".col-xs-6").width();
+			var xheight = xwidth*80/145
+			$(".proLogo").height(xheight)
+		})
+		$(".pros_margin_top_5").last().remove()
+	})
+	</script>
 </div>

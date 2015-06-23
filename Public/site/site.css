@@ -29,7 +29,7 @@ body{
 }
 /*首页h4*/
 .index-h4{
-	height:40px;line-height:40px;font-size:18px;text-align:center;
+	height:40px;line-height:40px;font-size:18px;text-align:center;background: #414141;color:#fff;
 }
 /*div外阴影*/
 .out-shadow{

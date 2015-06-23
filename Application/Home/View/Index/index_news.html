@@ -1,11 +1,11 @@
-<div class="alert alert-success reset-0 index-h4">
+<div class="alert reset-0 index-h4">
 	微风投时讯
 </div>
-<div style="margin-top:10px;"></div>
 <div class="container-fuild">
 	<div id="news_list">
 		<?php foreach ($news as $k => $v): ?>
-			<div class="out-shadow" style="margin-top:5px;">
+			<div class="out-shadow">
+				<div class="margin_top_5" style="margin-top:5px;"></div>
 				<div class="row panel-body reset-0 bk-fff" style="padding:10px;">
 					<div class="col-xs-5 reset-0">
 						<a href="" class="thumbnail reset-0">
@@ -41,5 +41,6 @@ jQuery(document).ready(function($) {
 		var margin_top_h = news_h1-news_h2-news_h3
 		$(this).find('.news_author').css({'margin-top':margin_top_h})
 	})
+	$("#news_list").find(".margin_top_5").first().remove()
 });
 </script>
