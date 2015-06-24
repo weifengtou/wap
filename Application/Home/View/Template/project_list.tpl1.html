@@ -55,12 +55,8 @@ $prodetail = get_child_detail($proInfo['id'],$style=1);
 <?php endforeach; ?>
 <script>
 jQuery(document).ready(function($) {
-	//项目图片图片等比显示
-	// $("img.proLogo").resize(function(e){
 		var xwidth = $(".proLogo").parents(".col-xs-6").width();
 		var xheight = xwidth*80/145
 		$(".proLogo").height(xheight)
-	// })
-	// $(".pros_margin_top_5").last().remove()
 });
 </script>

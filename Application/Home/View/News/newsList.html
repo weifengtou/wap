@@ -1,0 +1,34 @@
+<extend name="Base/layout"/>
+
+<block name="body">
+	<!-- <div style="margin-top:20px;"></div> -->
+	<div class="container-fiuld bk-fff">
+		<include file="newsList_navbar" />
+		<div style="padding-top:5px;background:#ccc;"></div>
+		<div class="row">
+			<div id="news_list">
+				<include file="Template:news_list.tpl" />
+				<div id="news_list_add"></div>
+				<div class="container-fuild">
+					<button id="addpros" class="btn btn-default btn-block">更多</button>
+				</div>
+				<script>
+				var i = 1
+				$("#addpros").on('click',function (e) {
+					$("#addpros").text("加载中...")
+					jQuery.post('{:get_url()}', {'start':i}, function(data, textStatus, xhr) {	
+						if (data) {
+							$("#news_list_add").append(data)
+							$("#addpros").text("更多")
+						}else{
+							$("#addpros").text("没有更多新闻了")
+							$("#addpros").attr({"id":""})
+						}
+						i++
+					});
+				})
+				</script>
+			</div>
+		</div>
+	</div>
+</block>

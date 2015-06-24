@@ -54,7 +54,7 @@
 <nav id="sx-menu" class="this_nav hidden">
 	<ul>
 		<li>
-			<a href="{:get_url().'&sx=all'}">所有项目</a>
+			<a href="{:U('Investor/investors')}">所有项目</a>
 		</li>
 		<li>
 			<a href="{:get_url().'&sx=gr'}">个人投资者</a>
@@ -73,7 +73,7 @@ $(document).ready(function() {
 <nav id="hy-menu" class="this_nav hidden">
 	<ul>
 		<li>
-			<a href="{:get_url().'&fathertradeid=all'}">所有项目</a>
+			<a href="{:U('Investor/investors')}">所有项目</a>
 		</li>
 		<?php foreach (M('Trade')->where("pid=0")->select() as $k => $v): ?>
 			<li>
@@ -91,7 +91,7 @@ $(document).ready(function() {
 <nav id="dq-menu" class="this_nav hidden">
 	<ul>
 		<li>
-			<a href="{:get_url().'&shiid=all'}">所有项目</a>
+			<a href="{:U('Investor/investors')}">所有项目</a>
 		</li>
 		<?php 
 			$china = M('China')->select(); 

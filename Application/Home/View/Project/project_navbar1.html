@@ -94,7 +94,7 @@ jQuery(document).ready(function($) {
 <nav id="sx-menu" class="this_nav hidden">
 	<ul>
 		<li>
-			<a href="{:get_url().'&rz=true'}">所有项目</a>
+			<a href="{:U('Project/projects')}">所有项目</a>
 		</li>
 		<li>
 			<a href="{:get_url().'&prrate=2'}">预热中</a>
@@ -116,7 +116,7 @@ $(document).ready(function() {
 <nav id="hy-menu" class="this_nav hidden">
 	<ul>
 		<li>
-			<a href="{:get_url().'&rz=true'}">所有项目</a>
+			<a href="{:U('Project/projects')}">所有项目</a>
 		</li>
 		<?php foreach (M('Trade')->where("pid=0")->select() as $k => $v): ?>
 			<li>
@@ -134,7 +134,7 @@ $(document).ready(function() {
 <nav id="dq-menu" class="this_nav hidden">
 	<ul>
 		<li>
-			<a href="{:get_url().'&rz=true'}">所有项目</a>
+			<a href="{:U('Project/projects')}">所有项目</a>
 		</li>
 		<?php 
 			$china = M('China')->select(); 

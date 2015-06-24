@@ -1,32 +1,26 @@
 <extend name="Base/layout"/>
 
 <block name="body">
-	<div style="margin-top:20px;"></div>
-	<div class="container">
-		<div>
-			<ol class="breadcrumb">
-				<li>
-					<a href="">微风投</a>
-				</li>
-				<li>
-					<a href="">新闻中心</a>
-				</li>
-				<li class="active">所有新闻</li>
-			</ol>
-		</div>
+	<!-- <div style="margin-top:20px;"></div> -->
+	<div class="container-fiuld bk-fff">
 		<div class="row">
-			<div>
-				<div class="col-xs-5">
-					<a href="#" class="thumbnail img-rounded">
-						<img src="http://www.weifengtou.com/Uploads/Picture/2015-05-29/5567df8febd30.jpg" alt="..."></a>
-				</div>
-				<div class="col-xs-7">
-					<p class="margin-0">
-						<a href="">当心！这6种方式会让你和联合创始人闹翻</a>
-					</p>
-					<p class="margin-0">sunnyfanyn</p>    
-					<p class="margin-0">发布时间：2015-05-29</p>
-				</div>
+			<div class="col-xs-12">
+				<ol class="breadcrumb bk-fff" style="margin:0;">
+					<li>
+						<a href="">微风投</a>
+					</li>
+					<li>
+						<a href="">新闻中心</a>
+					</li>
+					<li class="active">所有新闻</li>
+					<a class="pull-right">分类</a>
+				</ol>
+			</div>
+		</div>
+		<div style="padding-top:5px;background:#ccc;"></div>
+		<div class="row">
+			<div id="news_list">
+				<include file="Template:news_list.tpl" />
 			</div>
 		</div>
 	</div>
