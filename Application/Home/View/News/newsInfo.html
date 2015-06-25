@@ -1,5 +1,72 @@
 <extend name="Base/layout"/>
 
 <block name="body">
-{:yc_vp($newsInfo,1)}
+	<include file="newsInfo_navbar" />
+<div class="bk-fff" style="margin-top:5px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h4 class="reset-0 text-center" style="padding:10px 0">{$newsInfo['title']}</h4>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div>
+					<div class="pull-left">作者：{$newsInfo.uid|get_username}</div>
+					<div class="pull-right">{$newsInfo.create_time|date='Y-m-d H:i',###}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div style="margin-top:10px;"></div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div id="newsInfo" style=" text-indent:2em; ">
+					{$newsInfo['content']}
+					<script>
+					jQuery(document).ready(function($) {
+						$("#newsInfo").find("img").addClass("img-responsive")
+					});
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div>
+					<?php 
+						$pv = M()->query("select * from __DOCUMENT_ARTICLE__ where id<'$_GET[newsId]' order by id DESC LIMIT 1");
+						$pv_title = M('Document')->where("id=".$pv[0][id])->find();
+						$pv_title = $pv_title[title];
+						$nt = M()->query("select * from __DOCUMENT_ARTICLE__ where id>'$_GET[newsId]' order by id ASC LIMIT 1");
+						$nt_title = M('Document')->where("id=".$nt[0][id])->find();
+						$nt_title = $nt_title[title];
+					?>
+					<div>上一篇： <?php if($pv): ?>
+									<a href="{:U('?newsId='.$pv[0][id])}">{$pv_title}</a>
+								<?php else: ?>
+									没有了
+								<?php endif; ?>	
+					</div>
+					<div>下一篇：	<?php if($nt): ?>
+									<a href="{:U('?newsId='.$nt[0][id])}">{$nt_title}</a>
+								<?php else: ?>
+									没有了
+								<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </block>

@@ -61,7 +61,8 @@ class NewsController extends HomeController {
 
     public function newsInfo($newsId)
     {
-    	$newsInfo = $newsId;
+    	$newsInfo = D("Document")->detail($newsId);
+    	$newsInfo['content'] = str_replace("/Uploads/Editor/",C("TMPL_PARSE_STRING.__SOURCE_URL__")."/Uploads/Editor/",$newsInfo['content'],$i);
     	$this->assign('newsInfo',$newsInfo);
     	$this->display();
     }
