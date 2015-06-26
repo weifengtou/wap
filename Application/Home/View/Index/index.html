@@ -1,8 +1,15 @@
 <extend name="Base/layout"/>
 
+<block name="head">
+	<!-- swiper -->
+	<link rel="stylesheet" href="__STATIC__/swiper/animate.min.css">
+	<link rel="stylesheet" href="__STATIC__/swiper/swiper3.08.min.css">
+	<script src="__STATIC__/swiper/swiper3.08.jquery.min.js"></script>
+	<script src="__STATIC__/swiper/swiper.animate1.0.2.jquery.min.js"></script>
+</block>
+
 <block name="body">
-    <include file="index_banner" />
-    <include file="index_loadshow" />
+    <include file="index_banner1" />
     <include file="index_projects" />
     <include file="index_news" />
 </block>

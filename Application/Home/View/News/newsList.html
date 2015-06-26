@@ -1,15 +1,14 @@
 <extend name="Base/layout"/>
 
 <block name="body">
-	<!-- <div style="margin-top:20px;"></div> -->
-	<div class="container-fiuld bk-fff">
+	<div class="bk-fff">
 		<include file="newsList_navbar" />
 		<div style="padding-top:5px;background:#ccc;"></div>
-		<div class="row">
+		<div class="row reset-0">
 			<div id="news_list">
 				<include file="Template:news_list.tpl" />
 				<div id="news_list_add"></div>
-				<div class="container-fuild">
+				<div>
 					<button id="addpros" class="btn btn-default btn-block">更多</button>
 				</div>
 				<script>
