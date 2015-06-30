@@ -1,0 +1,38 @@
+<extend name="Base/layout"/>
+
+<block name="body">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 reset-0 bk-fff">
+				<ol class="breadcrumb bk-fff" style="margin:0;">
+					<li>
+						<a href="{:U('Index/index')}">微风投</a>
+					</li>
+					<li>
+						<a href="{:U('UserCenter/index')}">个人中心</a>
+					</li>
+					<li>
+						<a href="{:U('UserCenter/index')}">基本信息</a>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<div style="height:5px;"></div>
+	<div class="container-fluid bk-fff">
+		<div class="row reset-0 ">
+			<div style="height:5px;"></div>
+			<div class="col-xs-4 reset-0" style="padding-right:10px;">
+				<img src="__SOURCE_URL__/{$userDetail[0]['face_img']}" class="img-responsive" alt="">
+			</div>
+			<div class="col-xs-8 reset-0">
+				<p>昵称:{$userDetail[0]['username']}</p>
+				<p>真名:{$useDetail[0]['realname']?$useDetail[0]['realname']:'暂无'}</p>
+				<p>公司:{$useDetail[0]['compamy']?$useDetail[0]['compamy']:'暂无'}</p>
+			</div>
+			<div class="col-xs-12 reset-0">
+				<small>微风投—专注于小微实体企业中长期融资的创投服务平台</small>
+			</div>
+		</div>
+	</div>
+</block>

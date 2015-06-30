@@ -20,7 +20,7 @@
                     <div class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{$userInfo[0]['username']}<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                            <li><a href="#" >个人中心</a></li>
+                            <li><a href="{:U('Home/UserCenter/index')}" >个人中心</a></li>
                             <li class="divider"></li>
                             <li><a href="{:U('User/logout')}" >退出</a></li>
                         </ul>
@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fuild" style="background:#fff;height:40px;margin-bottom:4px;position:;">
+    <div class="container-fluid reset-0" style="background:#fff;height:40px;margin-bottom:4px;position:;">
         <div class="col-xs-3 center reset-0 text-center" isActive="Index"><a class="this_1" href="{:U('Index/index')}" style="text-decoration: none;"><b>首页</b></a></div>
         <div class="col-xs-3 center reset-0 text-center" isActive="Project"><a class="this_1" href="{:U('Project/projects')}" style="text-decoration: none;"><b>好项目</b></a></div>
         <div class="col-xs-3 center reset-0 text-center" isActive="Investor"><a class="this_1" href="{:U('Investor/investors')}" style="text-decoration: none;"><b>投资人</b></a></div>

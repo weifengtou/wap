@@ -927,6 +927,31 @@ function get_homeuser_id($child_id,$style=0)
 	return $info[uid];
 }
 /**
+ * 根据id获取用户详细
+ * @param  int $id 用户id
+ * @return arr    用户详细
+ */
+function get_homeuser_info($id)
+{
+    $info = M('Homeuser')->where("id='$id'")->limit("1")->select();
+    if ($info[0]['style']==1) {
+        $x = M('Pruser')->where("uid='$id'")->field("face_img,realname,phone,sex,sheng,shengid,shi,shiid,qu,quid,qq,weibo")->limit("1")->select();
+        foreach ($x[0] as $k => $v) {
+            $info[0][$k] = $v[$k];
+        }
+        $info[0]['face_img'] = "Uploads/Album/".$x[0]['face_img'];
+    }elseif ($info[0]['style']==2) {
+        $x = M('Investor')->where("uid='$id'")->field("type,iden_status,level_id,privacy,phone,realname,introduce,face_img,sex,company,postion,intention,intentionname,tzidea,income,tz_num,min_maney,max_maney,inv_info,f_image,b_image,add_time,update_time,qq,weibo,sheng,shengid,shi,shiid,qu,quid,jieduan,xingzhi,leibie,tdurl,tddetail,zhizhao")->select();
+        foreach ($x[0] as $k => $v) {
+            $info[0][$k] = $v[$k];
+        }
+        $info[0]['face_img'] = "Uploads/Investor/".$x[0]['face_img'];
+    }else{
+        #
+    }
+    return $info;
+}
+/**
  * 根据子id获取详细
  * @param  int $child_id 用户子id
  * @param  int $style 用户类型 1:项目人 2:投资人

@@ -45,11 +45,13 @@
             $('#login').ajaxForm({
                 success: function (data) {
                     if (data=='欢迎登陆微风投手机版!') {
-                        layer.alert(data,{
+                        layer.alert(data,{ 
                             icon:1,
                             time: 5000
                         })
                         location.href="{:U('Home/Index/index')}"
+                    }else if(data=="未激活邮箱!"){
+                        location.href="{:U('Home/UserCenter/index')}"
                     }else{
                         layer.alert(data,{
                             icon:2

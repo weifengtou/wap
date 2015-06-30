@@ -56,3 +56,7 @@ body{
 	margin: 10px 0;
 	border-bottom:#ccc dashed 1px;
 }
+/*首行缩进2m*/
+.text_indent2{
+	text-indent: 2em;
+}
