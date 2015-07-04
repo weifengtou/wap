@@ -2,6 +2,12 @@
 namespace Home\Controller;
 class InvestorController extends HomeController {
 
+    public function _initialize()
+    {
+        parent::_initialize();
+        C('SEO_TITLE','投资人');
+    }
+
     public function index(){
         // $this->redirect('investors');
     }

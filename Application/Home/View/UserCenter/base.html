@@ -1,0 +1,20 @@
+<div class="container-fluid bk-fff">
+	<div class="row reset-0 ">
+		<div style="height:5px;"></div>
+		<div class="col-xs-4 reset-0" style="padding-right:10px;">
+			<?php if ($userDetail[0]['face_img']): ?>
+				<img src="__SOURCE_URL__/{$userDetail[0]['face_img']}" class="img-responsive" alt="">
+			<?php else: ?>
+				<img src="__SOURCE_URL__/Public/static/images/nop.gif" class="img-responsive" alt="">
+			<?php endif; ?>
+		</div>
+		<div class="col-xs-8 reset-0">
+			<p>昵称:{$userDetail[0]['username']}</p>
+			<p>真名:{$useDetail[0]['realname']?$useDetail[0]['realname']:'暂无'}</p>
+			<p>公司:{$useDetail[0]['compamy']?$useDetail[0]['compamy']:'暂无'}</p>
+		</div>
+		<div class="col-xs-12 reset-0">
+			<small>微风投—专注于小微实体企业中长期融资的创投服务平台</small>
+		</div>
+	</div>
+</div>

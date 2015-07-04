@@ -2,6 +2,12 @@
 namespace Home\Controller;
 class NewsController extends HomeController {
 
+    public function _initialize()
+    {
+        parent::_initialize();
+        C('SEO_TITLE','新闻中心');
+    }
+
     public function index(){
     	/*首页新闻*/
     	$this->redirect("newsList");

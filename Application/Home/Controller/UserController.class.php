@@ -8,6 +8,7 @@ class UserController extends HomeController {
 
     public function login()
     {
+        C('SEO_TITLE','登陆');
     	$this->display();
     }
 
@@ -45,6 +46,7 @@ class UserController extends HomeController {
 
     public function register()
     {
+        C('SEO_TITLE','注册');
         if (I('post.signup')) {
             $model = D('Homeuser');
             if ($model->create()) {

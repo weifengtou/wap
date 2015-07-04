@@ -5,7 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>{$title}</title>
+    <title><?php 
+    echo C('SEO_TITLE')?C('SEO_TITLE'):C('TITLE');
+    ?></title>
+    <meta name="KEYWORDS" content="<?php 
+    echo C('SEO_KEYWORDS')?C('SEO_KEYWORDS'):C('KEYWORDS');
+    ?>"><meta name="DESCRIPTION" content="<?php 
+    echo C('SEO_DESCRIPTION')?C('SEO_DESCRIPTION'):C('DESCRIPTION');
+    ?>" />
     <include file="Public:head" />
 </head>
 <body>

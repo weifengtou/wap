@@ -2,6 +2,12 @@
 namespace Home\Controller;
 class ProjectController extends HomeController {
 
+    public function _initialize()
+    {
+        parent::_initialize();
+        C('SEO_TITLE','好项目');
+    }
+
     public function index(){
         // $this->redirect('projects');
     }
