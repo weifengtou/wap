@@ -3,7 +3,7 @@ namespace Home\Controller;
 class TestController extends HomeController {
 
     public function index(){
-    	$this->redirect('test2');
+    	$this->redirect('test3');
     }
 
     //侧边滑入
@@ -16,5 +16,11 @@ class TestController extends HomeController {
     public function test2()
     {
     	$this->display();
+    }
+
+    //less
+    public function test3()
+    {
+        $this->display();
     }
 }
