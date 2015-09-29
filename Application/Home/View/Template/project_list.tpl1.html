@@ -14,18 +14,18 @@ $prodetail = get_child_detail($proInfo['id'],$style=1);
 ?>
 <div class="out-shadow" style="background:#fff;">
 	<div class="panel-body reset-0" style="padding:10px;">
-		<div>
-			<div class="col-xs-6 reset-0"  style="padding-right:5px;">
+		<div class="proInfo">
+			<div class="col-xs-4 reset-0"  style="padding-right:5px;">
 				<a href="{:U('project/proInfo',array('proId'=>
 					$proInfo[id]))}" class="thumbnail reset-0">
 					<img class="proLogo" src="__SOURCE_URL__/{$prodetail[0]['logo']}" alt="logo"></a>
 			</div>
-			<div class="col-xs-6 reset-0"  style="padding-left:5px;">
-				<a class="proLink" href="{:U('project/proInfo',array('proId'=>$proInfo[id]))}">
+			<div class="col-xs-8 reset-0"  style="padding-left:5px;">
+				<a class="proLink" style="text-decoration: none;color:#333;" href="{:U('project/proInfo',array('proId'=>$proInfo[id]))}">
 				<?php 
 					$x = str_replace('&nbsp;',' ',$prodetail[0]['pjname']);
-					if (mb_strlen($x,'utf-8')>9) {
-						$x = mb_substr($x,0,9,"UTF-8");
+					if (mb_strlen($x,'utf-8')>11) {
+						$x = mb_substr($x,0,11,"UTF-8");
 						$x = $x."...";
 					}
 				?>
@@ -33,30 +33,58 @@ $prodetail = get_child_detail($proInfo['id'],$style=1);
 				</a>
 				<div class="proBudget">
 					<p class="reset-0 je_margin_top je_font">
-						<span>已融金额</span>
-						<span>￥{$prodetail[0]['money']}</span>
+						<?php 
+							$x = str_replace('&nbsp;',' ',$prodetail[0]['pjintroduce']);
+							if (mb_strlen($x,'utf-8')>30) {
+								$x = mb_substr($x,0,30,"UTF-8");
+								$x = $x."...";
+							}
+						?>
+						{$x}
 					</p>
-					<p class="reset-0 je_margin_top je_font">
-						<span>融资总额</span>
-						<span>￥{$prodetail[0]['budget']}</span>
-					</p>
-					<?php $x = $prodetail[0]['money']*100/$prodetail[0]['budget']>100?100:$prodetail[0]['money']*100/$prodetail[0]['budget']; ?>
-					<div class="progress reset-0" style="height:5px;margin-top:10px;">
-						<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {$x}%">
-							<span class="sr-only">已完成{$x}%</span>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
+		<div class="proBudget">
+			<p class="reset-0 je_margin_top je_font pull-left" style="font-size:14px;color:#666;">
+				<span>目标</span>
+				<span>￥{$prodetail[0]['budget']}</span>
+			</p>
+			<p class="reset-0 je_margin_top je_font pull-right" style="font-size:14px;color:#666;">
+				<span>已融资</span>
+				<span>￥{$prodetail[0]['money']}</span>
+			</p>
+		</div>
 	</div>
 </div> 
-<div class="pros_margin_top_5" style="margin-top:5px;"></div>
+<?php $x = $prodetail[0]['money']*100/$prodetail[0]['budget']>100?100:$prodetail[0]['money']*100/$prodetail[0]['budget']; ?>
+<div class="progress reset-0" style="height:5px;">
+	<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {$x}%">
+		<span class="sr-only">已完成{$x}%</span>
+	</div>
+</div>
 <?php endforeach; ?>
+<style>
+	.proLink{
+		font-size:16px;
+		color:#333;
+	}
+	.proBudget{
+		font-size: 14px;
+		color: #666;
+	}
+</style>
 <script>
 jQuery(document).ready(function($) {
-		var xwidth = $(".proLogo").parents(".col-xs-6").width();
+		var xwidth = $(".proLogo").parents(".col-xs-4").width();
 		var xheight = xwidth*80/145
 		$(".proLogo").height(xheight)
+		$(".proInfo").each(function (e) {
+			var xH = $(this).find(".proLogo").height();
+			var xh1 = $(this).find(".proLink").height();
+			var xh2 = $(this).find(".proBudget").height();
+			xh = xH - xh1 - xh2;
+			$(this).find(".proBudget").css({"margin-top":xh})
+		})
 });
 </script>

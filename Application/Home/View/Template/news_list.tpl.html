@@ -1,15 +1,11 @@
 <?php foreach ($news as $k =>
 $v): ?>
 <div class="out-shadow">
-	<div class="margin_top_5" style="margin-top:5px;"></div>
+	<div class="margin_top_5" style="border-top:solid #ccc 1px;"></div>
 	<div class="row panel-body reset-0 bk-fff" style="padding:10px;">
-		<div class="col-xs-5 reset-0">
-			<a href="{:U('News/newsInfo',array('newsId'=>$v['id']))}" class="thumbnail reset-0">
-				<img class="cover_image" src="{$v['cover_image']}" alt="logo"></a>
-		</div>
-		<div class="col-xs-7 reset-0" style="padding-left:10px;">
+		<div class="col-xs-8 reset-0">
 			<div class="news_title">
-				<a href="{:U('News/newsInfo',array('newsId'=>$v['id']))}" style="color:#000;">{$v[title]}</a>
+				<a href="{:U('News/newsInfo',array('newsId'=>$v['id']))}" style="text-decoration: none;color:#333;font-size:16px;">{$v[title]}</a>
 			</div>
 			<div class="news_author" style="color:#888;margin-top:20px;">
 				<span>
@@ -17,13 +13,17 @@ $v): ?>
 				</span>
 			</div>
 		</div>
+		<div class="col-xs-4 reset-0" style="padding-left:10px;">
+			<a href="{:U('News/newsInfo',array('newsId'=>$v['id']))}" class="thumbnail reset-0">
+				<img class="cover_image" src="{$v['cover_image']}" alt="logo"></a>
+		</div>
 	</div>
 </div>
 <?php endforeach; ?>
 <script>
 jQuery(document).ready(function($) {
 	//新闻图片一致
-	var cover_w = $(".cover_image").parents(".col-xs-5").width();
+	var cover_w = $(".cover_image").parents(".col-xs-4").width();
 	var cover_h = cover_w*80/125;
 	$(".cover_image").height(cover_h)
 	//作者时间位置

@@ -4,7 +4,7 @@
 	border: 0;
 }
 body{
-	background: #e4e4e4;
+	background: #f0f0f0;
 	max-width:100%;
 }
 /**/
@@ -29,7 +29,7 @@ body{
 }
 /*首页h4*/
 .index-h4{
-	height:40px;line-height:40px;font-size:18px;text-align:center;background: #414141;color:#fff;
+	height:40px;line-height:40px;font-size:18px;text-align:left;background: #f0f0f0;color:#666;
 }
 /*div外阴影*/
 .out-shadow{
@@ -62,4 +62,7 @@ body{
 /*首行缩进2m*/
 .text_indent2{
 	text-indent: 2em;
+}
+.text_de_none{
+	text-decoration: none;
 }

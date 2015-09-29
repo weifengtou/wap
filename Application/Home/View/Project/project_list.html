@@ -1,4 +1,4 @@
-<div class="text-center" style="color:red">目前共有<?php echo count(M('Project')->where("prrate>0")->field("id")->select()); ?>个好项目</div>
+<div class="text-center color-red" style="line-height:2.0;">目前共有<?php echo count(M('Project')->where("prrate>0")->field("id")->select()); ?>个好项目</div>
 <div class="container reset-0">
 	<div>
 		<include file="Template:project_list.tpl1" />
