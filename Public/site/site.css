@@ -51,6 +51,9 @@ body{
 .color-888{
 	color: #888;
 }
+.color-red{
+	color:#da251c;
+}
 /*虚线*/
 .dashed{
 	margin: 10px 0;

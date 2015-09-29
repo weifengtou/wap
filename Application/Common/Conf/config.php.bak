@@ -25,6 +25,7 @@ return array(
     'TMPL_PARSE_STRING' => array(
         '__STATIC__' => __ROOT__ . '/Public/static/',
         '__SITE__' => __ROOT__ . '/Public/site/',
+        '__UPLOADS__' => __ROOT__ . '/Uploads/',
         '__SOURCE_URL__' => 'http://www.weifengtou.com/'
     ),
 
