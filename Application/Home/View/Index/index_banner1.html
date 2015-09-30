@@ -29,13 +29,16 @@ jQuery(document).ready(function($) {
         // 如果需要分页器
         pagination: '.swiper-pagination',
         // 如果需要前进后退按钮
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
+        // nextButton: '.swiper-button-next',
+        // prevButton: '.swiper-button-prev',
         // 如果需要滚动条
         // scrollbar: '.swiper-scrollbar',
-        autoplay: 3000
+        // autoplay: 3000
     });
     $("div.swiper-button-prev").remove(); 
     $("div.swiper-button-next").remove();
+    $("spam.swiper-pagination-bullet-active").css({
+        'background':"red !important"
+    })
 });      
 </script>
