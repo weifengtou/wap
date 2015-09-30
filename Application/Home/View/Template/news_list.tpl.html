@@ -5,7 +5,16 @@ $v): ?>
 	<div class="row panel-body reset-0 bk-fff" style="padding:10px;">
 		<div class="col-xs-8 reset-0">
 			<div class="news_title">
-				<a href="{:U('News/newsInfo',array('newsId'=>$v['id']))}" style="text-decoration: none;color:#333;font-size:16px;">{$v[title]}</a>
+				<a href="{:U('News/newsInfo',array('newsId'=>$v['id']))}" style="text-decoration: none;color:#333;font-size:16px;">
+					<?php 
+						$x = str_replace('&nbsp;',' ',$v['title']);
+						if (mb_strlen($x,'utf-8')>22) {
+							$x = mb_substr($x,0,22,"UTF-8");
+							$x = $x."...";
+						}
+					?>
+					{$x}
+				</a>
 			</div>
 			<div class="news_author" style="color:#888;margin-top:20px;">
 				<span>
