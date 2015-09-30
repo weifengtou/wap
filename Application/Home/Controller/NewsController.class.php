@@ -13,7 +13,7 @@ class NewsController extends HomeController {
     	$this->redirect("newsList");
     }
 
-	public function getNews($_list,$start=0,$end=3)
+	public function getNews($_list,$start=0,$end=10)
 	{
 		if(is_array($_list)):  
 			if( count($_list)==0 ) : 
@@ -54,8 +54,8 @@ class NewsController extends HomeController {
     {
     	$list = $this->getList();
     	if ($i = I('post.start')) {
-            $i = $i*3;
-            $this->getNews($list,$i,$i+3);
+            $i = $i*10;
+            $this->getNews($list,$i,$i+10);
             if ($this->news) {
             	$this->display("Template:news_list.tpl");
             }

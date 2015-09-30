@@ -16,14 +16,14 @@ class ProjectController extends HomeController {
     {
         $where = $this->getProjects();
         if ($i = I('post.start')) {
-            $i = $i*3;
-            $projects = M('Project')->where($where)->limit($i.",3")->order("order_id")->select();
+            $i = $i*10;
+            $projects = M('Project')->where($where)->limit($i.",10")->order("order_id")->select();
             if ($projects) {
                 $this->assign('projects',$projects);
                 $this->display('Template/project_list.tpl1');
             }
         }else{
-        	$projects = M('Project')->where($where)->limit('0,3')->order("order_id")->select();
+        	$projects = M('Project')->where($where)->limit('0,10')->order("order_id")->select();
         	$this->assign('projects',$projects);
         	$this->display();
         }

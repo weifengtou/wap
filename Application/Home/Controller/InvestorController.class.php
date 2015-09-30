@@ -16,14 +16,14 @@ class InvestorController extends HomeController {
     {
     	$where = $this->getinvestors();
     	if ($i = I('post.start')) {
-            $i = $i*3;
-            $investors = M('Investor')->where($where)->order("order_id,id DESC")->limit($i.",3")->select();
+            $i = $i*10;
+            $investors = M('Investor')->where($where)->order("order_id,id DESC")->limit($i.",10")->select();
             if ($investors) {
                 $this->assign('investors',$investors);
                 $this->display('Template/investor_list.tpl');
             }
         }else{
-        	$investors = M('Investor')->where($where)->order("order_id,id DESC")->limit("0,3")->select();
+        	$investors = M('Investor')->where($where)->order("order_id,id DESC")->limit("0,10")->select();
         	$this->assign('investors',$investors);
         	$this->display();
         }
