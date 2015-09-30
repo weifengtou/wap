@@ -20,11 +20,11 @@
 	<script>
 	jQuery(document).ready(function($) {
 		$("#info_toggles").find(".panel-heading").on('click',function (e) {
-			$(".accordion-toggle").html('<span class="glyphicon glyphicon-plus"></span>')
+			$(".accordion-toggle").html('<span class="glyphicon glyphicon-plus color-red"></span>')
 			if ($(this).attr("aria-expanded")!="true") {
-				$(this).find(".accordion-toggle").html('<span class="glyphicon glyphicon-minus"></span>')
+				$(this).find(".accordion-toggle").html('<span class="glyphicon glyphicon-minus color-red"></span>')
 			}else{
-				$(this).find(".accordion-toggle").html('<span class="glyphicon glyphicon-plus"></span>')
+				$(this).find(".accordion-toggle").html('<span class="glyphicon glyphicon-plus color-red"></span>')
 			}
 		})
 		$(".accordion-toggle").on("click",function (e) {

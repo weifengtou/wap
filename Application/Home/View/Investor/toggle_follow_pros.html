@@ -3,7 +3,7 @@
 		<div class="panel_heading_title">
 			关注的项目
 			<a class="accordion-toggle pull-right" attrLinkId="关注的项目">
-				<span class="glyphicon glyphicon-plus"></span>
+				<span class="glyphicon glyphicon-plus color-red"></span>
 			</a>
 		</div>
 	</div>
@@ -23,7 +23,7 @@
 	$(".panel-heading[href=#关注的项目]").on('click',function (e) {
 		//项目图片图片等比显示
 		$("img.proLogo").resize(function(e){
-			var xwidth = $(".proLogo").parents(".col-xs-6").width();
+			var xwidth = $(".proLogo").parents(".col-xs-4").width();
 			var xheight = xwidth*80/145
 			$(".proLogo").height(xheight)
 		})
