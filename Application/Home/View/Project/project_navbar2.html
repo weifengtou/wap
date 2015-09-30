@@ -1,0 +1,150 @@
+<!-- jquery.mmenu -->
+<link href="__STATIC__/jQuery.mmenu/dist/css/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
+<script src="__STATIC__/jQuery.mmenu/dist/js/jquery.mmenu.min.all.js" type="text/javascript"></script>
+<script>
+	jQuery(document).ready(function($) {
+		mmenu_conf = {
+			 offCanvas: {
+               position  : "left",
+               zposition : "front"
+            },
+	    	extensions: [
+	    		"theme-dark",
+	    		"pageshadow"
+	    	],
+	    	navbar:{
+	    		title:"请选择",
+	    		titleLink:"none"
+	    	},
+	    	onClick:{
+	    		close:false,
+	    		setSelected:"selected",
+	    		// preventDefault:true，
+	    		blockUI:true
+	    	},
+	    	slidingSubmenus:true
+	    },{
+	    	classNames:{
+	    		divider:"Divider",
+	    		panel:"Panel",
+	    		selected:"Selected",
+	    		vertical:"Vertical"
+	    	},
+	    	// clone:true,
+	    	openingInterval:50,
+	    	// panelNodetype:"div, ul, ol",
+	    	transitionDuration:800
+	    }
+	});
+</script>
+<div class="container-fuild" style="margin-top:5px;">
+	<div class="row text-center reset-0 bk-fff" style="box-shadow: 1px 2px 3px #888;height:40px;line-height:40px;">
+		<div class="col-xs-4">
+			<a class="my_menu active" href="#sx-menu" style="color:#da251c;text-decoration:none;">进度</a>
+		</div>
+		<div class="col-xs-4">
+			<a class="my_menu" href="#hy-menu" style="color:#da251c;text-decoration:none;">行业</a>
+		</div>
+		<div class="col-xs-4">
+			<a class="my_menu" href="#dq-menu" style="color:#da251c;text-decoration:none;">地区</a>
+		</div>
+	</div>
+</div>
+<script>
+jQuery(document).ready(function($) {
+	var pl1 = $("#prolist_l1")
+	var pr1 = $("#prolist_r1")
+	var wl1 = pl1.width()
+	var hl1 = wl1*3/4
+	var wr1 = pr1.width()
+	var hr1 = wr1*3/4
+	pl1.height(hl1)
+	pr1.height(hr1)
+	pl_image = pl1.find('#pl_image').height()
+	pr_image = pr1.find('#pr_image').height()
+	padding_l = (hl1 - pl_image)/2
+	padding_r = (hr1 - pr_image)/2
+	pl1.css({'padding-top':padding_l})
+	pr1.css({'padding-top':padding_r})
+
+	$("a.my_menu").css({'text-decoration':'none'})
+});
+</script>
+
+<nav id="sx-menu" class="this_nav hidden">
+	<ul>
+		<li>
+			<a href="{:U('Project/projects')}">所有项目</a>
+		</li>
+		<li>
+			<a href="{:get_selects_url(get_url(),['prrate'=>0])}">未认证</a>
+		</li>
+		<li>
+			<a href="{:get_selects_url(get_url(),['prrate'=>1])}">已认证</a>
+		</li>
+		<li>
+			<a href="{:get_selects_url(get_url(),['prrate'=>2])}">预热中</a>
+		</li>
+		<li>
+			<a href="{:get_selects_url(get_url(),['prrate'=>3])}">融资中</a>
+		</li>
+		<li>
+			<a href="{:get_selects_url(get_url(),['prrate'=>4])}">融资成功</a>
+		</li>
+	</ul>
+</nav>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#sx-menu").mmenu(mmenu_conf);
+});
+</script>
+
+<nav id="hy-menu" class="this_nav hidden">
+	<ul>
+		<li>
+			<a href="{:U('Project/projects')}">所有项目</a>
+		</li>
+		<?php foreach (M('Trade')->where("pid=0")->select() as $k => $v): ?>
+			<li>
+				<a href="{:get_selects_url(get_url(),['fathertradeid'=>$v['id']])}">{$v['trade']}</a>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+</nav>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#hy-menu").mmenu(mmenu_conf);
+});
+</script>
+
+<nav id="dq-menu" class="this_nav hidden">
+	<ul>
+		<li>
+			<a href="{:U('Project/projects')}">所有项目</a>
+		</li>
+		<?php 
+			$china = M('China')->select(); 
+			$cityTree = list_to_tree($china,'id','pid');
+		?>
+		<?php foreach ($cityTree as $k1 => $v1): ?>
+			<li><a href="#{$v1['id']}">{$v1['name']}</a>
+				<ul>
+					<?php foreach ($v1['_child'] as $k2 => $v2): ?>
+						<li><a href="{:get_selects_url(get_url(),['cityid'=>$v2['id']])}">{$v2['name']}</a></li>
+					<?php endforeach; ?>
+				</ul>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+</nav>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#dq-menu").mmenu(mmenu_conf);
+});
+</script>
+
+<script>
+jQuery(document).ready(function($) {
+	$(".this_nav").removeClass('hidden')
+});
+</script>
