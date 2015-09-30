@@ -8,20 +8,23 @@
 			<div id="news_list">
 				<include file="Template:news_list.tpl" />
 				<div id="news_list_add"></div>
+				<div style="margin-top:5px;"></div>
 				<div>
-					<button id="addpros" class="btn btn-default btn-block">更多</button>
+					<div id="addnews" style="height:30px;line-height:30px;background:#fff;">
+						<div class="center" style="color:#666;text-decoration:none;">更多</div>
+					</div>
 				</div>
 				<script>
 				var i = 1
-				$("#addpros").on('click',function (e) {
-					$("#addpros").text("加载中...")
+				$("#addnews").on('click',function (e) {
+					$("#addnews").html('<div class="center" style="color:#666;text-decoration:none;">加载中...</div>')
 					jQuery.post('{:get_url()}', {'start':i}, function(data, textStatus, xhr) {	
 						if (data) {
 							$("#news_list_add").append(data)
-							$("#addpros").text("更多")
+							$("#addnews").html('<div class="center" style="color:#666;text-decoration:none;">更多</div>')
 						}else{
-							$("#addpros").text("没有更多新闻了")
-							$("#addpros").attr({"id":""})
+							$("#addnews").html('<div class="center" style="color:#666;text-decoration:none;">没有更多新闻了</div>')
+							$("#addnews").attr({"id":""})
 						}
 						i++
 					});

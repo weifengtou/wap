@@ -1,19 +1,19 @@
 <div id="loadshow"></div>
 <div class="container-fuild">
-	<div style="height:30px;line-height:30px;background:#fff;">
-		<div id="addpros" class="center" style="color:#666;text-decoration:none;">更多</div>
+	<div id="addpros" style="height:30px;line-height:30px;background:#fff;">
+		<div class="center" style="color:#666;text-decoration:none;">更多</div>
 	</div>
 </div>
 <script>
 var i = 1
 $("#addpros").on('click',function (e) {
-	$("#addpros").text("加载中...")
+	$("#addpros").html('<div class="center" style="color:#666;text-decoration:none;">加载中...</div>')
 	jQuery.post('{:get_url()}', {'start':i}, function(data, textStatus, xhr) {	
 		if (data) {
 			$("#loadshow").append(data)
-			$("#addpros").text("更多")
+			$("#addpros").html('<div class="center" style="color:#666;text-decoration:none;">更多</div>')
 		}else{
-			$("#addpros").text("没有更多项目了")
+			$("#addpros").html('<div class="center" style="color:#666;text-decoration:none;">没有更多项目了</div>')
 			$("#addpros").attr({"id":""})
 		}
 		i++

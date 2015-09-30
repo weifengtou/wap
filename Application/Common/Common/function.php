@@ -862,52 +862,44 @@ function get_stemma($pids,Model &$model, $field='id'){
     $relate_url = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $php_self.(isset($_SERVER['QUERY_STRING']) ? '?'.$_SERVER['QUERY_STRING'] : $path_info);
     return $sys_protocal.(isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '').$relate_url;
  }
-/**
+ /**
  * 调试输出|调试模式下
  * @param  mixed $test 调试变量
- * @param  int $style 是否停止 | 打印输出
+ * @param  int $style 模式
+ * @param  int $stop 是否停止
  * @return void       浏览器输出
- * @author wodrow <wodrow451611cv@gmail.com>
+ * @author wodrow <wodrow451611cv@gmail.com | 1173957281@qq.com>
  */
-function yc_vp($test,$style=0)
+function _vp($test,$style=0,$stop=0)
 {
     switch ($style) {
+        case 0:
+            echo "<pre>";
+            var_dump($test);
+            echo "</pre>";
+            break;
+            
         case 1:
             echo "<pre>";
             var_dump($test);
+            echo "<hr/>";
+            for($i=0;$i<100;$i++){
+                echo $i."<hr/>";
+            }
             echo "</pre>";
             break;
 
         case 2:
-            echo "<pre>";
-            var_dump($test);
-            echo "</pre>";
-            exit("<hr>");
+            file_put_contents(C("DOCUMENT_ROOT").RUNTIME_PATH.'/_vpFile.php', "<? \r".var_export($test, true));
             break;
 
         case 3:
-            file_put_contents('testfile.php', "<? \r".var_export($test, true));
-            break;
-
-        case 4:
-            file_put_contents('testfile.php', "<? \r".var_export($test, true));
-            exit("<hr>");
-            break;
-
-        case 5:
-            file_put_contents('testfile.php', "\r\r".var_export($test, true),FILE_APPEND);
-            break;
-
-        case 6:
-            file_put_contents('testfile.php', "\r\r".var_export($test, true),FILE_APPEND);
-            exit("<hr>");
-            break;   
-
-        default:
-            # code...
-            break;
+            file_put_contents(C("DOCUMENT_ROOT").RUNTIME_PATH.'/_vpFile.php', "\r\r".var_export($test, true),FILE_APPEND);
+            break; 
     }
-    
+    if ($stop!=0) {
+        exit("<hr/>");
+    }
 }
 /**
  * 根据子id获取用户id
@@ -1074,4 +1066,26 @@ function sendEmail($to, $subject, $content,$username)
         return 0;
         exit();
     }
+}
+/**
+ * 多条件筛选
+ */
+function get_selects_url($url,$options)
+{
+    foreach ($options as $k => $v) {
+        if (preg_match("/".$k."/", $url)) {
+            if ($v==null) {
+                # code...
+            }else{
+                $url = preg_replace("/".$k."\/[A-Za-z0-9_]+/",$k."/".$v,$url);
+            }
+        }else{
+            if (preg_match("/\/.html/", $url)) {
+                $url = preg_replace("/\/.html/","/".$k."/".$v."/.html",$url);
+            }else{
+                $url = preg_replace("/.html/","/".$k."/".$v."/.html",$url);
+            }
+        }
+    }
+    return $url;
 }

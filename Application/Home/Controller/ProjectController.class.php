@@ -28,25 +28,17 @@ class ProjectController extends HomeController {
         	$this->display();
         }
     }
-
     public function getProjects()
     {
-        $where = '';
-        if (I("get.rz")=="true") {
-            $where = "prrate>1";
-        }elseif(I("get.rz")=="false"){
-            $where = "prrate=1";
-            return $where;
-            exit();
-        }else{
-            $where = "prrate>0";
-        }
+        $where = [];
         if ($prrate = I("get.prrate")) {
-            $where = "prrate=".$prrate;
-        }elseif ($cityid = I("get.cityid")) {
-            $where = "cityid=".$cityid;
-        }elseif ($fathertradeid = I("get.fathertradeid")) {
-            $where = "fathertradeid=".$fathertradeid;
+            $where['prrate'] = $prrate;
+        }
+        if ($cityid = I("get.cityid")) {
+            $where['cityid'] = $cityid;
+        }
+        if ($fathertradeid = I("get.fathertradeid")) {
+            $where['fathertradeid'] = $fathertradeid;
         }
         return $where;
     }

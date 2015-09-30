@@ -10,7 +10,7 @@ $invdetail = get_child_detail($invInfo['id'],$style=2);
 				<div class="row reset-0">
 					<div class="col-xs-3 reset-0"><a href="{:U('invInfo?invId='.$invdetail[0]['id'])}"><img src="__SOURCE_URL__/{$invdetail[0]['logo']}" class="img-circle img-responsive"></a></div>
 					<div class="col-xs-9 reset-0" style="padding-left:5px;">
-						<h5 class="reset-0"><b><a href="{:U('invInfo?invId='.$invdetail[0]['id'])}"><?php echo $invdetail[0]['showname']?$invdetail[0]['showname']:$invdetail[0]['username'] ?></a></b></h5>
+						<h5 class="reset-0"><b><a style="text-decoration: none;color:#333;" href="{:U('invInfo?invId='.$invdetail[0]['id'])}"><?php echo $invdetail[0]['showname']?$invdetail[0]['showname']:$invdetail[0]['username'] ?></a></b></h5>
 						<div style="margin-top:4px;">
 							投资意向：
 							<?php 
